@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="30 seconds">
+	<property name="LOGGER_HOME" value="./logs" />
+	<property name="ROOT_LEVEL" value="INFO" />
+	<property name="MJAVA_LEVEL" value="INFO" />
+
+	<appender name="LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoding>utf-8</encoding>
+		<prudent>false</prudent>
+		<append>true</append>
+		<File>${LOGGER_HOME}/mutator.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${LOGGER_HOME}/mutator.log.%i.zip
+			</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>20</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>20mb</MaxFileSize>
+		</triggeringPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				%-4relative %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{15}--> %msg%n
+			</Pattern>
+		</layout>
+	</appender>
+
+	<root level="${ROOT_LEVEL}">
+		<appender-ref ref="LOG" />
+	</root>
+	
+	<!--Root TRACE,DEBUG,INFO,WARN,ERROR-->
+	<logger name="edu.ecnu.sqslab.mjava" level="${MJAVA_LEVEL}" />
+	<!--<logger name="test" level="INFO" />-->
+
+</configuration>

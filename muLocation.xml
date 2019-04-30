@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- if the value of active is N or not configured Class, it means mutating all classes and methods -->
+<LocationSettings control_dependence="N" active="Y">
+    <Class  name="Thread"  qualifiedName="java.lang.Thread" active="Y">
+        <!-- if value of active is N, it means this class won't be mutated -->
+            <Methods>
+                <Method name="run">
+                    <!-- If there are multiple modifiers, separate them with commas. e.g. static,public -->
+                    <!-- Options: *,public,protected,private,abstract,static,final,synchronized...-->
+                    <!-- Tips: '*' stands for arbitrary values -->
+                    <Modifiers>public</Modifiers>
+                    <!-- Options: *,void,boolean,short,char,int,long,float,double,Long,Double,randomObjectType...-->
+                    <returnType>void</returnType>
+                    <!-- Options in returnTypes, If you have multiple params, separate them with commas -->
+                    <!-- The order of the params type is the same as the order in the method -->
+                    <!-- No parameters are empty -->
+                    <Parameters></Parameters>
+                </Method>
+            </Methods>
+    </Class>
+    <Class  name="Runnable"  qualifiedName="java.lang.Runnable" active="Y">
+        <Methods>
+            <Method name="run">
+                <Modifiers>public</Modifiers>
+                <returnType>void</returnType>
+                <Parameters></Parameters>
+            </Method>
+        </Methods>
+    </Class>
+    <Class name="Handler.Callback"  qualifiedName="android.os.Handler.Callback" active="Y">
+        <Methods>
+            <Method name="handleMessage">
+                <Modifiers>public</Modifiers>
+                <returnType>boolean</returnType>
+                <Parameters>Message</Parameters>
+            </Method>
+        </Methods>
+    </Class>
+    <Class name="Handler"  qualifiedName="android.os.Handler" active="Y">
+        <Methods>
+            <Method name="handleMessage">
+                <Modifiers>public</Modifiers>
+                <returnType>boolean</returnType>
+                <Parameters>Message</Parameters>
+            </Method>
+        </Methods>
+    </Class>
+    <Class name="AsyncTask"  qualifiedName="android.os.AsyncTask" active="Y">
+        <Methods>
+            <Method name="doInBackground">
+                <Modifiers>protected</Modifiers>
+                <returnType>*</returnType>
+                <Parameters>*</Parameters>
+            </Method>
+        </Methods>
+    </Class>
+    <Class name="TestDemo"  qualifiedName="com.example.user.myapplication.TestDemo" active="N">
+        <Methods>
+            <Method name="fun">
+                <Modifiers>public</Modifiers>
+                <returnType>void</returnType>
+                <Parameters></Parameters>
+            </Method>
+            <Method name="fun">
+                <Modifiers>public</Modifiers>
+                <returnType>void</returnType>
+                <Parameters>int,char</Parameters>
+            </Method>
+            <Method name="fun">
+                <Modifiers>public</Modifiers>
+                <returnType>void</returnType>
+                <Parameters>int,int</Parameters>
+            </Method>
+        </Methods>
+    </Class>
+    <Class name="WordAdapter"  qualifiedName="com.phikal.regex.Adapters.WordAdapter" active="Y">
+        <Methods>
+            <Method name="getColor">
+                <Modifiers></Modifiers>
+                <returnType>int</returnType>
+                <Parameters>int</Parameters>
+            </Method>
+        </Methods>
+    </Class>
+</LocationSettings>

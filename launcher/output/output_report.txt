@@ -1,0 +1,8 @@
+----------------------------------------------------
+Output Report
+----------------------------------------------------
+Mutants Count: 12
+Compilation Success: 12  Compilation Failed: 0
+APK File: 12
+Launch Success : 0  Launch Failed: 12
+----------------------------------------------------

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings>
+	<Mutation>
+		<Directory name="mutation_home">E:\mutatorHome</Directory>
+		<Directory name="package_path">E:\mutatorHome\src</Directory>
+		<Directory name="classes_path">E:\mutatorHome\classes</Directory>
+		<Directory name="mutants_path">E:\mutatorHome\result</Directory>
+		<Directory name="AndroidManifest_path">E:\AndroidStudioProjects\MyApplication\app\src\main</Directory>
+	</Mutation>
+	<Builder>
+		<Directory name="project_name">ReGex</Directory>
+		<Directory name="project_path">E:\AndroidStudioProjects</Directory>
+		<Directory name="build_path">E:\mutatorHome\pro_source</Directory>
+		<Directory name="apk_output">E:\mutatorHome\apk_output</Directory>
+	</Builder>
+	<Python>D:\Python27\python</Python>
+</Settings>
