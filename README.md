@@ -13,7 +13,7 @@ Video Url: https://youtu.be/xxx
     Python 2.7+
 ### Two ways to get tools：
 
-#### 1.click to download [DroidMutator]( https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip )
+#### 1. click to download [DroidMutator]( https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip )
     
 #### 2. Build by yourself
     step 1. git clone https://github.com/SQS-JLiu/DroidMutator.git
@@ -32,16 +32,16 @@ Video Url: https://youtu.be/xxx
 2. Pass in the custom muLocation.xml, mutator.xml or operators.config file.
    This will use all configuration operators to mutate all source files directly(Not display GUI).
     
-        java -jar DroidMutator.jar [location_config=xxx/xxx.xml] [project_config=xxx/xxx.xml] [operators_config=xxx/xxx.config]
+        java -jar DroidMutator.jar [location_config=path/muLocation.xml] [project_config=path/mutator.xml] [operators_config=path/operators.config]
 ### Build each mutant as an installable file (APK file)
    The mutator.xml under the variation execution path is loaded by default, 
    and a custom configuration file such as xxx/my_mutator.xml can also be passed in.
         
-        python compileAndroidPro.py
+        python compileAndroidPro.py [otherpath/mutator.xml]
 ### Install and launch each APK file
    The mutator.xml under the variation execution path is loaded by default, 
    and a custom configuration file such as xxx/my_mutator.xml can also be passed in.
     
-        python RunMutants.py
+        python RunMutants.py  [otherpath/mutator.xml]
   If the app-debug_app_crash_flag file identifier exists in the same directory of the mutant APK, 
   it means that the startup APP fails.
