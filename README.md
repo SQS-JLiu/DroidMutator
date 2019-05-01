@@ -1,8 +1,9 @@
 # DroidMutator
 Mutation testing tool
 
-    1. click download [DroidMutator](https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip)
-    2. git clone https://github.com/SQS-JLiu/DroidMutator.git
+#### 1.click download [DroidMutator]( https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip )
+    
+#### 2. git clone https://github.com/SQS-JLiu/DroidMutator.git
     mvn clean
     mvn package
     E:\IdeaProjects\MutationTest\DroidMutator\target\DroidMutator-1.0-SNAPSHOT-jar-with-dependencies.jar
