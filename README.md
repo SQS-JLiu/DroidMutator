@@ -36,12 +36,14 @@ Video Url: https://youtu.be/xxx
 ### Build each mutant as an installable file (APK file)
    The mutator.xml under the variation execution path is loaded by default, 
    and a custom configuration file such as path/mutator.xml can also be passed in.
+   (You need to ensure that the environment can build applications using gradle.)
         
         python compileAndroidPro.py [otherpath/mutator.xml]
 ### Install and launch each APK file
    The mutator.xml under the variation execution path is loaded by default, 
    and a custom configuration file such as path/mutator.xml can also be passed in.
-    
+   (You need to ensure that there is a simulated emulator or physical device connected to the computer before executing the command.)
+        
         python RunMutants.py  [otherpath/mutator.xml]
   If the app-debug_app_crash_flag file identifier exists in the same directory of the mutant APK, 
   it means that the startup APP fails.
