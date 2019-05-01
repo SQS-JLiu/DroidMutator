@@ -1,5 +1,5 @@
 # DroidMutator
-A mutation testing tool:
+A type checking based mutation tool:
 
 Video Url: https://youtu.be/xxx
 
