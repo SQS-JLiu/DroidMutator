@@ -29,6 +29,7 @@ Video Url: https://youtu.be/xxx
    (The configuration file under the execution path is loaded by default.).
 
         java -jar DroidMutator.jar   
+   ![gui](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/mutate_gui.png)
 2. Pass in the custom muLocation.xml, mutator.xml or operators.config file.
    This will use all configuration operators to mutate all source files directly(Not display GUI).
     
