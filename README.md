@@ -35,12 +35,12 @@ Video Url: https://youtu.be/xxx
         java -jar DroidMutator.jar [location_config=path/muLocation.xml] [project_config=path/mutator.xml] [operators_config=path/operators.config]
 ### Build each mutant as an installable file (APK file)
    The mutator.xml under the variation execution path is loaded by default, 
-   and a custom configuration file such as xxx/my_mutator.xml can also be passed in.
+   and a custom configuration file such as path/mutator.xml can also be passed in.
         
         python compileAndroidPro.py [otherpath/mutator.xml]
 ### Install and launch each APK file
    The mutator.xml under the variation execution path is loaded by default, 
-   and a custom configuration file such as xxx/my_mutator.xml can also be passed in.
+   and a custom configuration file such as path/mutator.xml can also be passed in.
     
         python RunMutants.py  [otherpath/mutator.xml]
   If the app-debug_app_crash_flag file identifier exists in the same directory of the mutant APK, 
