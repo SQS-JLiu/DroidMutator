@@ -3,10 +3,7 @@ package edu.ecnu.sqslab.mjava;
 import mjava.gui.main.GenMutantsMain;
 import mjava.model.ImplementINFO;
 import mjava.model.InheritanceINFO;
-import mjava.util.ConfigHandler;
-import mjava.util.DirFileFilter;
-import mjava.util.ExtensionFilter;
-import mjava.util.XMLHandler;
+import mjava.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -509,13 +506,19 @@ public class MutationSystem {
                 logger.error("APK parsed directory ["+APK_PATH + File.separator + "classes"+"] is not exist.");
                 return;
             }
-            if(file.isFile()){ // a jar file or .class directory
-                addClass.invoke(cl, new Object[]{file.toURL()});
+            String jarPath;
+            if(file.isFile()){
+                jarPath = APK_PATH.replace(file.getName(),"")+ResolveJar.JAR_DIR_NAME;
             }else{ // multiple jars
-                for(File f: file.listFiles()){
-                    if(f.getName().endsWith(".jar")){
-                        addClass.invoke(cl, new Object[]{f.toURL()});
-                    }
+                jarPath = APK_PATH + File.separator + ResolveJar.JAR_DIR_NAME;
+            }
+            //System.out.println("jarPath: "+jarPath);
+            File jarDir = new File(jarPath);
+            if(!jarDir.exists()) return;
+            for(File f: jarDir.listFiles()){
+                if(f.getName().endsWith(".jar")){
+                    addClass.invoke(cl, new Object[]{f.toURL()});
+                    //System.out.println("Load Jar : "+f.getAbsolutePath());
                 }
             }
         }catch (Exception e){
