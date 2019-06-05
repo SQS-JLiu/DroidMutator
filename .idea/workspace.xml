@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7267e1e-f701-4124-bea0-23dbf755ae90" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java" afterDir="false" />
-    </list>
+    <list default="true" id="c7267e1e-f701-4124-bea0-23dbf755ae90" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,20 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MutationSystem.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MutationSystem.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="78">
               <caret line="510" column="68" selection-start-line="510" selection-start-column="68" selection-end-line="510" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResolveJar.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mjava/util/ResolveJar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="116" column="49" lean-forward="true" selection-start-line="116" selection-start-column="49" selection-end-line="116" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -165,32 +153,6 @@
             <path>
               <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
               <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="samples" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -418,7 +380,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -803,17 +764,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="510" column="68" selection-start-line="510" selection-start-column="68" selection-end-line="510" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mjava/util/ResolveJar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="116" column="49" lean-forward="true" selection-start-line="116" selection-start-column="49" selection-end-line="116" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="510" column="68" selection-start-line="510" selection-start-column="68" selection-end-line="510" selection-end-column="68" />
         </state>
       </provider>
     </entry>
