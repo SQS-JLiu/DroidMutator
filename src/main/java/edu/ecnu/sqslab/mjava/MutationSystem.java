@@ -54,6 +54,11 @@ public class MutationSystem {
     public static String CLASS_PATH = SYSTEM_HOME + File.separator + "classes";
 
     /**
+     * path of Android application
+     */
+    public static String APK_PATH = "";
+
+    /**
      * path of dependence libs of Java source files at LIB_PATH directory
      */
     public static String LIB_PATH = SYSTEM_HOME + File.separator + "libs";
@@ -328,12 +333,12 @@ public class MutationSystem {
         String temp;
         File dirF = new File(dir);
 
-        File[] classF = dirF.listFiles(new ExtensionFilter("class"));
+        File[] classF = dirF.listFiles(new ExtensionFilter("java"));
         if (classF != null) {
             classes = new String[classF.length];
             for (int k = 0; k < classF.length; k++) {
                 temp = classF[k].getAbsolutePath();
-                classes[k] = temp.substring(MutationSystem.CLASS_PATH.length()+1, temp.length() - ".class".length());
+                classes[k] = temp.substring(MutationSystem.SRC_PATH.length()+1, temp.length() - ".java".length());
                 classes[k] = classes[k].replace('\\', '.');
                 classes[k] = classes[k].replace('/', '.');
                 //System.out.println(classes[k]);
@@ -404,29 +409,29 @@ public class MutationSystem {
      */
     public static void recordClassRelation(){
         String[] classes = null;
-        classes = MutationSystem.getAllClassNames(classes, MutationSystem.CLASS_PATH);
+        classes = MutationSystem.getAllClassNames(classes, MutationSystem.SRC_PATH);
 
         if (classes == null) {
             System.err.println("[WARN] There are no classes to mutate.");
-            System.err.println(" Please check the directory  " + MutationSystem.CLASS_PATH + " and be sure that class_path is set correctly (without a trailing slash) in mutator.xml.");
+            System.err.println(" Please check the directory  " + MutationSystem.SRC_PATH + " and be sure that src_path is set correctly (without a trailing slash) in mutator.xml.");
             //Runtime.getRuntime().exit(0);
             return;
         }
         classInfo = new InheritanceINFO[classes.length];
         ImplementRelation implRelation = ImplementRelation.getInstance();
         boolean[] bad = new boolean[classes.length];
+        //add the class path dynamically
+        addURL();
         for (int i = 0; i < classes.length; i++) {
             bad[i] = false;
             try {
-                //add the class path dynamically
-                addURL(MutationSystem.CLASS_PATH);
                 //create a new class from the class name
                 Class c = Class.forName(classes[i]);
                 //create the parent class of the class above
                 Class parent = c.getSuperclass();
                 String parentName = "";
                 if ((parent == null) || (parent.getName().equals("java.lang.Object"))) {
-                    if (c.isInterface() && c.getInterfaces().length == 1) {
+                    if (c.isInterface() && c.getInterfaces().length >= 1) {
                         parentName = c.getInterfaces()[0].getName();
                     }
                 } else {
@@ -446,7 +451,7 @@ public class MutationSystem {
             } catch (Error er) {
                 // Sometimes error occurred. However, I can't solve..
                 // To users: try do your best to solve it. ^^;
-                logger.info("Parsing class "+ classes[i]+" failed, lie in the method RecordClassRelation() of the MutationSystem class");
+                logger.warn("Parsing class "+ classes[i]+" failed, lie in the method RecordClassRelation() of the MutationSystem class");
                 //System.out.println("Parsing class "+ classes[i]+" fails in the method RecordClassRelation() of the MutationSystem class");
                 bad[i] = true;
                 classInfo[i] = new InheritanceINFO(classes[i], "");
@@ -479,24 +484,43 @@ public class MutationSystem {
      * add the class path dynamically
      *
      */
-    private static void addURL(String classPath) {
+    private static void addURL() {
         try{
-            Method addClass = null;
-            ClassLoader cl = null;
-            File f = null;
-            addClass = URLClassLoader.class.getDeclaredMethod("addURL", new Class[]{URL.class});
+            Method addClass = URLClassLoader.class.getDeclaredMethod("addURL", new Class[]{URL.class});
             addClass.setAccessible(true);
-            // load app's bytecode files
-            f = new File(classPath);
-            cl = ClassLoader.getSystemClassLoader();
-            addClass.invoke(cl, new Object[]{f.toURL()});
-            // load app's dependence jars
+            ClassLoader cl = ClassLoader.getSystemClassLoader();
+            // load application based dependence jars
             File[] jarFiles = new File(MutationSystem.LIB_PATH).listFiles();
             for (File ff : jarFiles) {
                 addClass.invoke(cl, new Object[]{ff.toURL()});
             }
+            // load app's bytecode files
+            File classDir = new File(CLASS_PATH);
+            if(classDir.listFiles().length > 0){
+                addClass.invoke(cl,new Object[]{classDir.toURL()});
+            }
+            // load app's jar files
+            if("".equals(APK_PATH)){
+                return;
+            }
+            File file  = new File(APK_PATH);
+            if(!file.exists()){
+                System.err.println("APK parsed directory ["+APK_PATH + File.separator + "classes"+"] is not exist.");
+                logger.error("APK parsed directory ["+APK_PATH + File.separator + "classes"+"] is not exist.");
+                return;
+            }
+            if(file.isFile()){ // a jar file or .class directory
+                addClass.invoke(cl, new Object[]{file.toURL()});
+            }else{ // multiple jars
+                for(File f: file.listFiles()){
+                    if(f.getName().endsWith(".jar")){
+                        addClass.invoke(cl, new Object[]{f.toURL()});
+                    }
+                }
+            }
         }catch (Exception e){
-            logger.warn(e.getMessage());
+            System.err.println(e.toString());
+            logger.warn(e.toString());
         }
     }
 
@@ -605,6 +629,9 @@ public class MutationSystem {
             File classesDir = new File(CLASS_PATH);   //   XXX/classes
             if (!classesDir.isDirectory()) {
                 classesDir.mkdirs();
+            }
+            if(settingsMap.containsKey("apk_path")){
+                APK_PATH = settingsMap.get("apk_path");
             }
             MUTANT_HOME = settingsMap.get("mutants_path");   //  XXX/result
             File resultDir = new File(MUTANT_HOME);

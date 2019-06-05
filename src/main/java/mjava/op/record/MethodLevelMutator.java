@@ -7,14 +7,16 @@ import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.expr.ObjectCreationExpr;
+import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.ForeachStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import edu.ecnu.sqslab.mjava.MutantsGenerator;
 import edu.ecnu.sqslab.mjava.MutationSystem;
 import mjava.util.XMLHandler;
 
@@ -22,7 +24,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -33,12 +38,11 @@ import java.util.*;
 public abstract class MethodLevelMutator extends Mutator {
     //final String ClassTag = "MethodLevelMutator";
     protected String currentMethodSignature = null;
-    protected HashMap<String, ArrayList<Integer>> variableLineNumMap;
     //Marked statement line number set
     private Set<Integer> markStmtsSet = Sets.newHashSet();  //has control dependence
-    protected  File original_file;
+    protected File original_file;
 
-    public MethodLevelMutator(CompilationUnit compileUnit,File originalFile) {
+    public MethodLevelMutator(CompilationUnit compileUnit, File originalFile) {
         super(compileUnit);
         this.original_file = originalFile;
     }
@@ -80,16 +84,17 @@ public abstract class MethodLevelMutator extends Mutator {
 
     /**
      * Handles classes that inherit or implement methods
+     *
      * @param cid
      * @param obj
      */
-    public void visit(ClassOrInterfaceDeclaration cid, Object obj){
+    public void visit(ClassOrInterfaceDeclaration cid, Object obj) {
         Set<String> classTypeSets = classDeclarationType(cid);
-        if(classTypeSets.size() > 0 || XMLHandler.dclrClassMaps.size() == 0){
+        if (classTypeSets.size() > 0 || XMLHandler.dclrClassMaps.size() == 0) {
             cid.accept(new VoidVisitorAdapter<Set<String>>() {
                 @Override
                 public void visit(MethodDeclaration p, Set<String> typeSets) {
-                    if (isMethodDeclaration(p,typeSets,XMLHandler.dclrClassMaps)) {
+                    if (isMethodDeclaration(p, typeSets, XMLHandler.dclrClassMaps)) {
                         //System.out.println("========"+p.getNameAsString());
                         currentMethodSignature = getMethodSignature(p);
                         markStmtWithControlDep(p);
@@ -97,30 +102,31 @@ public abstract class MethodLevelMutator extends Mutator {
                     } else {
                         currentMethodSignature = null;
                     }
-                    super.visit(p,typeSets);
+                    super.visit(p, typeSets);
                 }
-            },classTypeSets);
+            }, classTypeSets);
         }
-        super.visit(cid,obj);
+        super.visit(cid, obj);
     }
 
     /**
      * Handling anonymous classes
+     *
      * @param oce
      * @param obj
      */
-    public void visit(ObjectCreationExpr oce, Object obj){
+    public void visit(ObjectCreationExpr oce, Object obj) {
         Set<String> typeSet = new HashSet<>();
         Set<String> nameSets = XMLHandler.objClassMaps.keySet();
         String anonymous_class = oce.getType().getNameAsString();
-        if(nameSets.contains(anonymous_class)){
+        if (nameSets.contains(anonymous_class)) {
             typeSet.add(anonymous_class);
         }
-        if(typeSet.size() > 0 || XMLHandler.objClassMaps.size() == 0){
-            oce.accept(new VoidVisitorAdapter<Set<String> >() {
+        if (typeSet.size() > 0 || XMLHandler.objClassMaps.size() == 0) {
+            oce.accept(new VoidVisitorAdapter<Set<String>>() {
                 @Override
-                public void visit(MethodDeclaration p, Set<String>  typeSet) {
-                    if (isMethodDeclaration(p,typeSet,XMLHandler.objClassMaps)) {
+                public void visit(MethodDeclaration p, Set<String> typeSet) {
+                    if (isMethodDeclaration(p, typeSet, XMLHandler.objClassMaps)) {
                         currentMethodSignature = getMethodSignature(p);
                         markStmtWithControlDep(p);
                         generateMutants(p);
@@ -129,91 +135,76 @@ public abstract class MethodLevelMutator extends Mutator {
                     }
                     super.visit(p, typeSet);
                 }
-            },typeSet);
+            }, typeSet);
         }
-        super.visit(oce,obj);
+        super.visit(oce, obj);
     }
 
-    public boolean skipMutation(Node node){
+    public boolean skipMutation(Node node) {
         Integer lineNo = node.getBegin().get().line;
         // has control dependence
-        if(ACTIVE_IDENTIFIER.equals(XMLHandler.control_dependence) && markStmtsSet.contains(lineNo)){
+        if (ACTIVE_IDENTIFIER.equals(XMLHandler.control_dependence) && markStmtsSet.contains(lineNo)) {
             return true;
         }
         return false;
     }
 
     /**
-     * @deprecated
+     * Get local variables type
+     *
      * @param p
      */
-    private void getLocalVariableList(MethodDeclaration p) {
+    private Map<String, String> getLocalVariableList(MethodDeclaration p) {
+        Map<String, String> localVariableType = Maps.newHashMap();
         p.accept(new VoidVisitorAdapter<Object>() {
-            @Override
-            public void visit(VariableDeclarator n, Object arg) {
-                //TODO: check if this var was declared above it, as a local var to the func. if yes, return
-                ArrayList<Integer> setOfLineNum;
-                if (variableLineNumMap == null) {
-                    //System.err.println(ClassTag + " Error: variableLineNumMap is null");
-                    return;
+            public void visit(VariableDeclarationExpr varDclr, Object obj) {
+                for (VariableDeclarator v : varDclr.getVariables()) {
+                    //System.out.println(v.getTypeAsString() + " : " + v.getNameAsString());
+                    localVariableType.put(v.getNameAsString(), v.getTypeAsString());
                 }
-                //System.out.println(n.getBegin().get().line+" NameExpr " + n.getNameAsString());
-                if (!variableLineNumMap.containsKey(n.getNameAsString())) {
-                    setOfLineNum = new ArrayList<Integer>();
-                    setOfLineNum.add(n.getBegin().get().line);
-                    variableLineNumMap.put(n.getNameAsString(), setOfLineNum);
-                } else {
-                    setOfLineNum = variableLineNumMap.get(n.getNameAsString());
-                    setOfLineNum.add(n.getBegin().get().line);
-                    variableLineNumMap.put(n.getNameAsString(), setOfLineNum);
-                }
-                super.visit(n, arg);
             }
         }, null);
+        return localVariableType;
     }
 
-    protected boolean isLocalVarInvok(MethodCallExpr me) {
-        if (me.toString().contains(".")) {
-            if (me.getChildNodes().size() > 1) {
-                if (variableLineNumMap.containsKey(me.getChildNodes().get(0).toString())) {
-                    return true;
-                }
-            }
+
+    public String getType(Expression expr, MethodDeclaration p) {
+        Map<String, String> localVariableType = getLocalVariableList(p);
+        if (localVariableType.containsKey(expr.toString())) {
+            return localVariableType.get(expr.toString());
         }
-        return false;
+        return MutantsGenerator.getNodeType(expr);
     }
 
-    public boolean isContainOutsideVar(Expression exp) {
-        List<Node> nodelist = exp.getChildNodes();
-        for (int i = 0; i < nodelist.size(); i++) {
-            Node node = nodelist.get(i);
-            if (!variableLineNumMap.containsKey(node.toString())) {
-                return true;
-            }
+    public String getType(Node node, MethodDeclaration p) {
+        Map<String, String> localVariableType = getLocalVariableList(p);
+        if (localVariableType.containsKey(node.toString())) {
+            return localVariableType.get(node.toString());
         }
-        return false;
+        return MutantsGenerator.getNodeType(node);
     }
 
     /**
      * mark statements that has control dependence
+     *
      * @param cu
      */
-    public void markStmtWithControlDep(MethodDeclaration cu){
+    public void markStmtWithControlDep(MethodDeclaration cu) {
         cu.accept(new VoidVisitorAdapter<Object>() {
             @Override
-            public void visit(IfStmt ifStmt, Object arg){
-                super.visit(ifStmt,arg);
+            public void visit(IfStmt ifStmt, Object arg) {
+                super.visit(ifStmt, arg);
                 List<Node> thenNodeList = ifStmt.getThenStmt().getChildNodes();
-                for (Node node : thenNodeList){
-                    if(markStmtsSet.contains(node.getBegin().get().line)){
+                for (Node node : thenNodeList) {
+                    if (markStmtsSet.contains(node.getBegin().get().line)) {
                         continue;
                     }
                     markStmtsSet.add(node.getBegin().get().line);
                 }
-                if(ifStmt.hasElseBranch()){
+                if (ifStmt.hasElseBranch()) {
                     List<Node> elseNodeList = ifStmt.getElseStmt().get().getChildNodes();
-                    for (Node node : elseNodeList){
-                        if(markStmtsSet.contains(node.getBegin().get().line)){
+                    for (Node node : elseNodeList) {
+                        if (markStmtsSet.contains(node.getBegin().get().line)) {
                             continue;
                         }
                         markStmtsSet.add(node.getBegin().get().line);
@@ -222,11 +213,11 @@ public abstract class MethodLevelMutator extends Mutator {
             }
 
             @Override
-            public void visit(WhileStmt whileStmt, Object arg){
-                super.visit(whileStmt,arg);
+            public void visit(WhileStmt whileStmt, Object arg) {
+                super.visit(whileStmt, arg);
                 List<Node> nodeList = whileStmt.getBody().getChildNodes();
-                for (Node node : nodeList){
-                    if(markStmtsSet.contains(node.getBegin().get().line)){
+                for (Node node : nodeList) {
+                    if (markStmtsSet.contains(node.getBegin().get().line)) {
                         continue;
                     }
                     markStmtsSet.add(node.getBegin().get().line);
@@ -234,11 +225,11 @@ public abstract class MethodLevelMutator extends Mutator {
             }
 
             @Override
-            public void visit(ForStmt forStmt, Object arg){
-                super.visit(forStmt,arg);
+            public void visit(ForStmt forStmt, Object arg) {
+                super.visit(forStmt, arg);
                 List<Node> nodeList = forStmt.getBody().getChildNodes();
-                for (Node node : nodeList){
-                    if(markStmtsSet.contains(node.getBegin().get().line)){
+                for (Node node : nodeList) {
+                    if (markStmtsSet.contains(node.getBegin().get().line)) {
                         continue;
                     }
                     markStmtsSet.add(node.getBegin().get().line);
@@ -246,24 +237,24 @@ public abstract class MethodLevelMutator extends Mutator {
             }
 
             @Override
-            public void visit(ForeachStmt foreachStmt, Object arg){
-                super.visit(foreachStmt,arg);
+            public void visit(ForeachStmt foreachStmt, Object arg) {
+                super.visit(foreachStmt, arg);
                 List<Node> nodeList = foreachStmt.getBody().getChildNodes();
-                for (Node node : nodeList){
-                    if(markStmtsSet.contains(node.getBegin().get().line)){
+                for (Node node : nodeList) {
+                    if (markStmtsSet.contains(node.getBegin().get().line)) {
                         continue;
                     }
                     markStmtsSet.add(node.getBegin().get().line);
                 }
             }
 
-        },null);
+        }, null);
     }
 
-    public boolean isContainSpecificMethod(String body){
+    public boolean isContainSpecificMethod(String body) {
         //skip method call
-        if(body.contains("System.out.print") || body.contains("Log.")
-                || body.contains("System.err.print")|| body.contains("Toast.makeText")){
+        if (body.contains("System.out.print") || body.contains("Log.")
+                || body.contains("System.err.print") || body.contains("Toast.makeText")) {
             return true;
         }
         return false;

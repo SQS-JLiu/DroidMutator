@@ -4,7 +4,6 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import edu.ecnu.sqslab.mjava.MutantsGenerator;
 import mjava.op.record.MethodLevelMutator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,8 +26,8 @@ public class ASR extends MethodLevelMutator{
         super(comp_unit, originalFile);
     }
 
-    protected void generateMutants(MethodDeclaration p) {
-        p.accept(new VoidVisitorAdapter<Object>() {
+    protected void generateMutants(MethodDeclaration methodDeclaration) {
+        methodDeclaration.accept(new VoidVisitorAdapter<Object>() {
             public void visit(AssignExpr assignExpr, Object obj) {
                 super.visit(assignExpr, obj);
                 if (skipMutation(assignExpr)) {
@@ -39,11 +38,12 @@ public class ASR extends MethodLevelMutator{
                         aop.equals(AssignExpr.Operator.MULTIPLY) || aop.equals(AssignExpr.Operator.DIVIDE) ||
                         aop.equals(AssignExpr.Operator.REMAINDER)){
                     if(aop.equals(AssignExpr.Operator.PLUS)){
-                        String targetType = MutantsGenerator.getNodeType(assignExpr.getTarget());
-                        if("java.lang.String".equals(targetType)){   // String a="abc"; a+=1 /  a+="def";
+                        String targetType = getType(assignExpr.getTarget(),methodDeclaration);
+                        if("java.lang.String".equals(targetType) || "String".equals(targetType)){// String a="abc"; a+=1 /  a+="def";
                             return;
                         }
                     }
+                    //System.out.println(assignExpr.toString());
                     genArithmeticMutants(assignExpr,aop);
                 }else if(aop.equals(AssignExpr.Operator.BINARY_AND) || aop.equals(AssignExpr.Operator.BINARY_OR) ||
                         aop.equals(AssignExpr.Operator.XOR)){

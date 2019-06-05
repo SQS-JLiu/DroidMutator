@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.regex.Pattern;
 
 /**
  * Set visible attribute (from a View) to false
@@ -28,6 +29,7 @@ public class ViewComponentNotVisible extends MethodLevelMutator {
     private static final Logger logger = LoggerFactory.getLogger(ViewComponentNotVisible.class);
     private boolean assignExprFlag = false;
     private AssignExpr targetExpr = null;
+    private final String regx = "findViewById\\s*\\(\\s*(R\\.id\\.\\w+)\\s*\\)\\s*$";
     public ViewComponentNotVisible(CompilationUnit comp_unit, File originalFile) {
         super(comp_unit, originalFile);
     }
@@ -53,11 +55,16 @@ public class ViewComponentNotVisible extends MethodLevelMutator {
                     }
                 }
                 /**
-                 * Case 1: compile failed:
+                 * Case 1: compile failed: (solved)
                  * boolean isDualPane = findViewById(R.id.weather_info_container) != null;
                  *  ==> isDualPane.setVisibility(android.view.View.INVISIBLE)
                  */
                 public void visit(AssignExpr assignExpr, Object obj) {
+                    Pattern pattern = Pattern.compile(regx);
+                    if(!pattern.matcher(assignExpr.toString()).find()){
+                        //System.out.println(assignExpr.toString());
+                        return;
+                    }
                     assignExprFlag = true;
                     targetExpr = assignExpr;
                     super.visit(assignExpr,obj);

@@ -3,6 +3,7 @@ package mjava.gui.main;
 import com.google.common.collect.Maps;
 import edu.ecnu.sqslab.mjava.InheritanceRelation;
 import edu.ecnu.sqslab.mjava.MutationSystem;
+import mjava.util.ResolveJar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,6 +68,7 @@ public class GenMutantsMain extends JFrame {
                 }
             }
             MutationSystem.setMutationStructure();
+            ResolveJar.doApk2Jar(MutationSystem.APK_PATH);
             MutationSystem.recordClassRelation();
             InheritanceRelation.getInstance().initInhertionInfo();
         }

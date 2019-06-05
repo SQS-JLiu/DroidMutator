@@ -60,13 +60,13 @@ public class AODu extends MethodLevelMutator {
         UnaryExpr.Operator uop = ue.getOperator();
         if(switchStmtFlag && caseLabel.contains(ue.toString())){
             if (uop.equals(UnaryExpr.Operator.PLUS)) {
-                String temp = ue.toString().replace(UnaryExpr.Operator.PLUS.asString(), "");
+                String temp = ue.toString().replaceFirst(UnaryExpr.Operator.PLUS.asString(), "");
                 if(caseLabel.contains(UnaryExpr.Operator.MINUS.asString()+temp)){
                     return;
                 }
             }
             if(uop.equals(UnaryExpr.Operator.MINUS)){
-                String temp = ue.toString().replace(UnaryExpr.Operator.MINUS.asString(), "");
+                String temp = ue.toString().replaceFirst(UnaryExpr.Operator.MINUS.asString(), "");
                 String temp2 = UnaryExpr.Operator.PLUS.asString() + temp;
                 if(caseLabel.contains(temp) || caseLabel.contains(temp2)){
                     return;
@@ -75,11 +75,11 @@ public class AODu extends MethodLevelMutator {
         }
         NameExpr mutant;
         if (uop.equals(UnaryExpr.Operator.PLUS)) {
-            String temp = ue.toString().replace(UnaryExpr.Operator.PLUS.asString(), "");
+            String temp = ue.toString().replaceFirst(UnaryExpr.Operator.PLUS.asString(), "");
             mutant = new NameExpr(temp);
             outputToFile(ue, mutant);
         } else if (uop.equals(UnaryExpr.Operator.MINUS)) {
-            mutant = new NameExpr(ue.toString().replace(UnaryExpr.Operator.MINUS.asString(), ""));
+            mutant = new NameExpr(ue.toString().replaceFirst(UnaryExpr.Operator.MINUS.asString(), ""));
             outputToFile(ue, mutant);
         }
     }
