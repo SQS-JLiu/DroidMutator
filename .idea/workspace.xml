@@ -2,32 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7267e1e-f701-4124-bea0-23dbf755ae90" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyAndroidOp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyJavaOp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyNewOp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/installJar2Maven.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/antlr-runtime-3.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/asm-debug-all-4.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/d2j-base-cmd-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/d2j-jasmin-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/d2j-smali-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dex-ir-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dex-reader-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dex-reader-api-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dex-tools-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dex-translator-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dex-writer-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dx-1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mutator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mutator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operators.config" beforeDir="false" afterPath="$PROJECT_DIR$/operators.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/DroidMutantsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/DroidMutantsGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/gui/dialog/BuilderDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/gui/dialog/BuilderDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/gui/main/GenMutantsMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/gui/main/GenMutantsMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/ARGR.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/ARGR_Writer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/IAR.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/IAR_Writer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/util/ResolveJar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/util/ResolveJar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/gui/main/MutantsGenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/gui/main/MutantsGenPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/gui/main/MutantsViewerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/gui/main/MutantsViewerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/gui/main/TraditionalMutantsViewerPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/gui/main/TraditionalMutantsViewerPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AODs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AODs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AODs_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AODs_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AODu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AODu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AODu_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AODu_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORb_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORb_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORs_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORs_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORu_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORu_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/ASR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/ASR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/ASR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/ASR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/InvalidDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/InvalidDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/InvalidFilePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/InvalidFilePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/InvalidURI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/InvalidURI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/LOR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/LOR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/LOR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/LOR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/NullBackEndServiceReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/NullBackEndServiceReturn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/NullInputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/NullInputStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/SOR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/SOR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/SOR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/SOR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/AVR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/AVR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/AVR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/AVR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/CER.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/CER.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/CER_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/CER_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/COR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/COR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/COR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/COR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/FLR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/FLR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/FLR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/FLR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/ROR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/ROR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/ROR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/ROR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/SAR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/SAR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/SAR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/SAR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/SCR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/SCR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/SCR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/SCR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/UOR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/UOR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/operator/UOR_Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/new_op/UOR_Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/record/MethodLevelMutator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/record/MethodLevelMutator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,20 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MutationSystem.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MutationSystem.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9185">
+            <state relative-caret-position="19">
               <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="operators.config" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/operators.config">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -103,9 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/mjava/op/operator/FLR.java" />
-        <option value="$PROJECT_DIR$/mutation_operator.config" />
-        <option value="$PROJECT_DIR$/muOperators.config" />
         <option value="$PROJECT_DIR$/operators.properties" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/util/CreateDirForEachMethod.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/ExpressionWriter/AssignExpr_Writer.java" />
@@ -140,13 +149,11 @@
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/record/Mutator.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORu.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AODu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/util/XMLHandler.java" />
         <option value="$PROJECT_DIR$/muLocation.xml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/samples/FindResults.java" />
         <option value="$PROJECT_DIR$/operators.config" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/DroidMutantsGenerator.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/gui/main/GenMutantsMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java" />
@@ -154,6 +161,11 @@
         <option value="$PROJECT_DIR$/mutator.xml" />
         <option value="$PROJECT_DIR$/builder/XMLHandler.py" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/gui/dialog/BuilderDialog.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyNewOp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyJavaOp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyAndroidOp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/DroidMutantsGenerator.java" />
       </list>
     </option>
   </component>
@@ -180,6 +192,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -188,12 +202,21 @@
               <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
               <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,7 +439,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -427,12 +449,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5060514" side_tool="true" weight="0.330033" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32838285" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49319214" weight="0.22937293" />
-      <window_info anchor="bottom" x="22" y="145" width="1322" height="463" id="Terminal" order="9" sideWeight="0.50680786" weight="0.21617162" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49319214" weight="0.4059406" />
+      <window_info active="true" anchor="bottom" x="22" y="145" width="1322" height="463" id="Terminal" order="9" sideWeight="0.50680786" visible="true" weight="0.21617162" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" x="491" y="113" width="383" height="502" id="Project" order="0" visible="true" weight="0.27987897" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.15181518" />
+      <window_info content_ui="combo" x="491" y="113" width="383" height="502" id="Project" order="0" visible="true" weight="0.28441754" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.46039605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -458,42 +480,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/android_op/InvalidKeyIntentPutExtra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.6.3/javaparser-core-3.6.3.jar!/com/github/javaparser/ast/expr/UnaryExpr.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AODu_Writer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/ExpressionWriter/AssignExpr_Writer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.6.3/javaparser-core-3.6.3.jar!/com/github/javaparser/ast/visitor/VoidVisitorAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7847">
-          <caret line="182" column="34" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/ROR_Writer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/ROR_Writer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
@@ -528,7 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/ROR.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/ROR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
@@ -542,21 +529,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AODu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/java_op/AODu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="874">
           <caret line="63" column="81" selection-start-line="63" selection-start-column="81" selection-end-line="63" selection-end-column="81" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/basic_op/AORu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
           <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/basic_op/ASR.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/java_op/ASR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
           <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
@@ -567,13 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-298">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="204" column="37" selection-start-line="204" selection-start-column="37" selection-end-line="204" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -654,60 +634,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/ARGR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/ARGR_Writer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/installJar2Maven.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="122" lean-forward="true" selection-start-line="12" selection-start-column="122" selection-end-line="12" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/AVR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/IAR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding>
-            <element signature="e#1206#2560#0" expanded="true" />
-            <element signature="e#2559#2560#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/IAR_Writer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/SAR.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/ARGR.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/ARGR_Writer.java" />
+    <entry file="file://$PROJECT_DIR$/installJar2Maven.bat" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/IAR.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/IAR_Writer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/SAR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/UOR.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/UOR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
@@ -721,14 +660,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/operator/COR.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/COR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="950">
           <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/basic_op/LOR.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/java_op/LOR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
@@ -736,13 +675,6 @@
             <element signature="e#964#1525#0" expanded="true" />
             <element signature="e#1524#1525#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/DroidMutantsGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="77" column="60" selection-start-line="77" selection-start-column="60" selection-end-line="77" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -781,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9185">
-          <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mjava/util/ShellUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-24">
@@ -823,7 +748,73 @@
     <entry file="file://$PROJECT_DIR$/operators.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/record/BasicTypeUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyNewOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyJavaOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/apply_op/ApplyAndroidOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/AVR_Writer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/AVR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/DroidMutantsGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="85" column="63" lean-forward="true" selection-start-line="85" selection-start-column="63" selection-end-line="85" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="123" column="25" selection-start-line="123" selection-start-column="25" selection-end-line="123" selection-end-column="25" />
         </state>
       </provider>
     </entry>

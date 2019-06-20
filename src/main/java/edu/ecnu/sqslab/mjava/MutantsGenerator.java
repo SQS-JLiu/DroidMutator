@@ -118,13 +118,13 @@ public abstract class MutantsGenerator {
     }
 
     /**
-     * Determine whether a string contain a certain operator
+     * Determine whether a string contain a certain new_op
      *
      * @param list
      * @param item
-     * @return true if a string contain the operator, false otherwise
+     * @return true if a string contain the new_op, false otherwise
      */
-    protected boolean hasOperator(String[] list, String item) {
+    public static boolean hasOperator(String[] list, String item) {
         for (int i = 0; i < list.length; i++) {
             if (list[i].equals(item))
                 return true;

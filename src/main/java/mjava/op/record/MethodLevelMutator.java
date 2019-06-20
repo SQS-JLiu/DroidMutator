@@ -63,7 +63,7 @@ public abstract class MethodLevelMutator extends Mutator {
     }
 
     /**
-     * Return an ID of a given operator name
+     * Return an ID of a given new_op name
      *
      * @param op_name
      * @return

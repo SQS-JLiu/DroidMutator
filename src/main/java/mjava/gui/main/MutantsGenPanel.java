@@ -36,7 +36,7 @@ import java.util.Vector;
  * <p>Template for generating mutants</p>
  * <p>  supporting function:
  * (1) choose Java file(s) to be mutated,
- * (2) choose mutation operator(s) to applied </p>
+ * (2) choose mutation new_op(s) to applied </p>
  *
  * @version 1.0
  */
@@ -164,7 +164,7 @@ public class MutantsGenPanel extends JPanel {
         titleOP.setEnabled(false);
         rightPanel.add(titleOP);
 
-        // method-level operator selection
+        // method-level new_op selection
         JPanel traditional_operator_panel = new JPanel();
         //traditional_operator_panel.setBorder(new TitledBorder("Method-level"));
         traditional_operator_panel.setBorder(new TitledBorder(""));
@@ -178,7 +178,7 @@ public class MutantsGenPanel extends JPanel {
         traditionalOpTable = new JTable(tmTableModel);
         initColumnSizes(traditionalOpTable, tmTableModel);
         traditional_operator_scrollP.getViewport().add(traditionalOpTable, null);
-        traditional_operator_scrollP.setPreferredSize(new Dimension(200, 440)); //adjust operator table
+        traditional_operator_scrollP.setPreferredSize(new Dimension(200, 440)); //adjust new_op table
         traditional_operator_scrollP.setMaximumSize(new Dimension(200, 440));   //size
 
         traditional_operator_panel.add(traditional_operator_scrollP);
@@ -231,7 +231,7 @@ public class MutantsGenPanel extends JPanel {
 
 
     protected void initColumnSizes(JTable table, AbstractTableModel model) {
-        initTripleColumnWidth(table, model, 30, 180, 80); //w2 is operator column width
+        initTripleColumnWidth(table, model, 30, 180, 80); //w2 is new_op column width
     }
 
 
@@ -313,7 +313,7 @@ public class MutantsGenPanel extends JPanel {
                 }
                 File original_file = new File(MutationSystem.SRC_PATH, file_name);
 
-                //do not generate traditional mutants if no class traditional operator is selected
+                //do not generate traditional mutants if no class traditional new_op is selected
                 DroidMutantsGenerator tmGenEngine;
                 tmGenEngine = new DroidMutantsGenerator(original_file, traditional_ops);
                 tmGenEngine.makeMutants();

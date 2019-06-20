@@ -427,7 +427,7 @@ public class TraditionalMutantsViewerPanel extends MutantsViewerPanel {
 
     void setSummaryTableSize() {
         int temp = MutationSystem.tm_operators.length * 200;
-        summaryPanel.setPreferredSize(new Dimension(250, temp)); //adjust operator table size
+        summaryPanel.setPreferredSize(new Dimension(250, temp)); //adjust new_op table size
         summaryPanel.setMaximumSize(new Dimension(250, temp));
     }
 

@@ -278,7 +278,7 @@ public abstract class MutantsViewerPanel  extends JPanel
          column = table.getColumnModel().getColumn(i);
          switch (i)
          {
-            case 0 :  column.setMaxWidth(200); // adjust operator column width
+            case 0 :  column.setMaxWidth(200); // adjust new_op column width
                       break;
             case 1 :  column.setMaxWidth(30); // adjust count column width
                       break;
