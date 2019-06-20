@@ -48,4 +48,4 @@ Video Url: https://youtu.be/0WFAcuTXFZE
         
         python RunMutants.py  [otherpath/mutator.xml]
   If the app-debug_app_crash_flag file identifier exists in the same directory of the mutant APK, 
-  it means that the startup APP fails.
+  it means that the mutant is trivial mutant (i.e., those leading to crashes on app launch).
