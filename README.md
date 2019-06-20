@@ -13,12 +13,13 @@ Video Url: https://youtu.be/0WFAcuTXFZE
     Python 2.7+
 ### Two ways to get tools：
 
-#### 1. click to download [DroidMutator]( https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip )
+#### 1. click to download [DroidMutator]( https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip ) image
     
 #### 2. Build by yourself
     step 1. git clone https://github.com/SQS-JLiu/DroidMutator.git
-    step 2. mvn clean
-    step 3. mvn package
+    step 2. add the local dependency jar to your local maven (run installJar2Maven.bat)
+    step 3. mvn clean
+    step 4. mvn package
 ##### you will find DroidMutator file in project directory (./target/DroidMutator-1.0-SNAPSHOT-jar-with-dependencies.jar)
     The following files and DroidMutator-1.0-xxx.jar are in a working directory：
     muLocation.xml, mutator.xml, operators.config, \libs\*.jar, \builder, \launcher
