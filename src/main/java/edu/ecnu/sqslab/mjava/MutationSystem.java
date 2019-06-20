@@ -51,11 +51,6 @@ public class MutationSystem {
     public static String CLASS_PATH = SYSTEM_HOME + File.separator + "classes";
 
     /**
-     * path of Android application
-     */
-    public static String APK_PATH = "";
-
-    /**
      * path of dependence libs of Java source files at LIB_PATH directory
      */
     public static String LIB_PATH = SYSTEM_HOME + File.separator + "libs";
@@ -472,9 +467,6 @@ public class MutationSystem {
                 }
             }
         }
-//        for (InheritanceINFO info : classInfo) {
-//            System.out.println("______ " + info.toString());
-//        }
     }
 
     /**
@@ -495,31 +487,6 @@ public class MutationSystem {
             File classDir = new File(CLASS_PATH);
             if(classDir.listFiles().length > 0){
                 addClass.invoke(cl,new Object[]{classDir.toURL()});
-            }
-            // load app's jar files
-            if("".equals(APK_PATH)){
-                return;
-            }
-            File file  = new File(APK_PATH);
-            if(!file.exists()){
-                System.err.println("APK parsed directory ["+APK_PATH + File.separator + "classes"+"] is not exist.");
-                logger.error("APK parsed directory ["+APK_PATH + File.separator + "classes"+"] is not exist.");
-                return;
-            }
-            String jarPath;
-            if(file.isFile()){
-                jarPath = APK_PATH.replace(file.getName(),"")+ResolveJar.JAR_DIR_NAME;
-            }else{ // multiple jars
-                jarPath = APK_PATH + File.separator + ResolveJar.JAR_DIR_NAME;
-            }
-            //System.out.println("jarPath: "+jarPath);
-            File jarDir = new File(jarPath);
-            if(!jarDir.exists()) return;
-            for(File f: jarDir.listFiles()){
-                if(f.getName().endsWith(".jar")){
-                    addClass.invoke(cl, new Object[]{f.toURL()});
-                    //System.out.println("Load Jar : "+f.getAbsolutePath());
-                }
             }
         }catch (Exception e){
             System.err.println(e.toString());
@@ -632,9 +599,6 @@ public class MutationSystem {
             File classesDir = new File(CLASS_PATH);   //   XXX/classes
             if (!classesDir.isDirectory()) {
                 classesDir.mkdirs();
-            }
-            if(settingsMap.containsKey("apk_path")){
-                APK_PATH = settingsMap.get("apk_path");
             }
             MUTANT_HOME = settingsMap.get("mutants_path");   //  XXX/result
             File resultDir = new File(MUTANT_HOME);

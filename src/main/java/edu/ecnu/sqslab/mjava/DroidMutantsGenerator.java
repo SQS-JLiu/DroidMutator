@@ -235,28 +235,27 @@ public class DroidMutantsGenerator extends MutantsGenerator {
             comp_unit.accept(mutant_op, null);
             System.out.println("SOR are handled.");
         }
+        if (hasOperator(traditionalOp, "ROR")) {
+            System.out.println("  Applying ROR ... ... ");
+            mutant_op = new ROR(comp_unit, original_file);
+            comp_unit.accept(mutant_op, null);
+            System.out.println("ROR are handled.");
+        }
+        if (hasOperator(traditionalOp, "COR")) {
+            System.out.println("  Applying COR ... ... ");
+            mutant_op = new COR(comp_unit, original_file);
+            comp_unit.accept(mutant_op, null);
+            System.out.println("COR are handled.");
+        }
     }
 
     private void myOperators() {
         MethodLevelMutator mutant_op;
-          /*if (hasOperator (traditionalOp, "ARGR") )
-                {
-                    System.out.println("  Applying ARGR ... ... ");
-                    mutant_op = new ARGR(comp_unit,original_file);
-                    comp_unit.accept(mutant_op,null);
-                    System.out.println("ARGR are handled.");
-                }*/
         if (hasOperator(traditionalOp, "SAR")) {
             System.out.println("  Applying SAR ... ... ");
             mutant_op = new SAR(comp_unit, original_file);
             comp_unit.accept(mutant_op, null);
             System.out.println("SAR are handled.");
-        }
-        if (hasOperator(traditionalOp, "IAR")) {
-            System.out.println("  Applying IAR ... ... ");
-            mutant_op = new IAR(comp_unit, original_file);
-            comp_unit.accept(mutant_op, null);
-            System.out.println("IAR are handled.");
         }
         if (hasOperator(traditionalOp, "SCR")) {
             System.out.println("  Applying SCR ... ... ");
@@ -281,18 +280,6 @@ public class DroidMutantsGenerator extends MutantsGenerator {
             mutant_op = new FLR(comp_unit, original_file);
             comp_unit.accept(mutant_op, null);
             System.out.println("FLR are handled.");
-        }
-        if (hasOperator(traditionalOp, "COR")) {
-            System.out.println("  Applying COR ... ... ");
-            mutant_op = new COR(comp_unit, original_file);
-            comp_unit.accept(mutant_op, null);
-            System.out.println("COR are handled.");
-        }
-        if (hasOperator(traditionalOp, "ROR")) {
-            System.out.println("  Applying ROR ... ... ");
-            mutant_op = new ROR(comp_unit, original_file);
-            comp_unit.accept(mutant_op, null);
-            System.out.println("ROR are handled.");
         }
         if (hasOperator(traditionalOp, "UOR")) {
             System.out.println("  Applying UOR ... ... ");

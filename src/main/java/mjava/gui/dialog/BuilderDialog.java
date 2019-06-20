@@ -74,7 +74,8 @@ public class BuilderDialog extends JDialog {
                     new Thread(){
                         public void run(){ //使用线程，方式阻塞当前事件   执行指令添加-u,避免python输出缓存问题
                             String cmd = MutationSystem.PYTHON_PATH +" -u "+ System.getProperty("user.dir");
-                            cmd = cmd + File.separator +"builder" + File.separator + "compileAndroidPro.py";
+                            cmd = cmd + File.separator +"builder" + File.separator + "compileAndroidPro.py ";
+                            cmd = cmd + System.getProperty("user.dir") + File.separator +"mutator.xml";
                             Map<String, String> result = ShellUtil.execute(cmd,null);
                             //System.out.println(cmd +"\nFlag: "+result.get("exitFlag")+"\nOutput: "+result.get("output"));
                             if(result.get("exitFlag").equals("1")){

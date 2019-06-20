@@ -4,21 +4,19 @@
 		<!-- Mutation home directory -->
 		<Directory name="mutation_home">E:\mutatorHome</Directory>
 		<!-- mutating files package directory -->
-		<Directory name="package_path">E:\mutatorHome\src</Directory>
+		<Directory name="package_path">E:\Android_experiment\SpeedMeter\app\src\main\java</Directory>
 		<!-- mutating files classes directory -->
-		<Directory name="classes_path">E:\mutatorHome\classes</Directory>
-		<!--For more precise mutation. But sometimes the parsed APK's jar will lose some class information, so by default, classes_path is used.-->
-		<!--<Directory name="apk_path">E:\AndroidStudioProjects\MyApplication\app\build\outputs\apk</Directory> -->
-		<Directory name="mutants_path">E:\mutatorHome\result</Directory>
-		<Directory name="AndroidManifest_path">E:\AndroidStudioProjects\MyApplication\app\src\main</Directory>
+		<Directory name="classes_path">E:\Android_experiment\SpeedMeter\app\build\intermediates\classes\debug</Directory>
+		<Directory name="mutants_path">E:\mutatorHome\result\SpeedMeter</Directory>
+		<Directory name="AndroidManifest_path">E:\Android_experiment\SpeedMeter\app\src\main</Directory>
 	</Mutation>
 	<Builder>
 		<!-- Application project name -->
-		<Directory name="project_name">MyApplication</Directory>
+		<Directory name="project_name">SpeedMeter</Directory>
 		<!-- Application project directory -->
-		<Directory name="project_path">E:\AndroidStudioProjects</Directory>
+		<Directory name="project_path">E:\Android_experiment</Directory>
 		<!-- Application project copy path. Source code is not affected when the build runs incorrectly or is interrupted-->
-		<Directory name="build_path">E:\mutatorHome\pro_source</Directory>
+		<Directory name="build_path">E:\mutatorHome\project_exp</Directory>
 		<!-- Mutant APKs output directory -->
 		<Directory name="apk_output">E:\mutatorHome\apk_output</Directory>
 	</Builder>

@@ -73,7 +73,7 @@ public class ResolveJar {
                 paramArr[3] = "-e";
                 paramArr[4] = inputDir+"\\"+f.getName().replace(".dex","")+"-error.zip";
                 paramArr[5] = f.getAbsolutePath();
-                com.googlecode.dex2jar.tools.Dex2jarCmd.main(paramArr);
+                //com.googlecode.dex2jar.tools.Dex2jarCmd.main(paramArr);
                 //System.out.println("absPath: "+f.getAbsolutePath());
             }
         }
