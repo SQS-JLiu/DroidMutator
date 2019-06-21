@@ -63,4 +63,16 @@ public class InheritanceINFO {
   public String toString() {
     return "Class Name: "+class_name+"\tSuper Class Name: "+parent_class_name;
   }
+
+    /**
+     * <p>Template containing summary of traditional mutants generated</p>
+     * @version 1.0
+      */
+
+    public static class TMSummaryTableModel extends SummaryTableModel
+    {
+       private static final long serialVersionUID = 203L;
+
+       int getOperatorType() {    return TMO;    }
+    }
 }

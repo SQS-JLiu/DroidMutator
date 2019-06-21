@@ -17,8 +17,8 @@
 package mjava.gui.main;
 
 import edu.ecnu.sqslab.mjava.MutationSystem;
-import mjava.util.MutantDirFilter;
-import mjava.util.TMSummaryTableModel;
+import mjava.model.InheritanceINFO;
+import mjava.filter.MutantDirFilter;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -408,7 +408,7 @@ public class TraditionalMutantsViewerPanel extends MutantsViewerPanel {
     }
 
     void initSummaryTable() {
-        TMSummaryTableModel tmodel = new TMSummaryTableModel();
+        InheritanceINFO.TMSummaryTableModel tmodel = new InheritanceINFO.TMSummaryTableModel();
         summaryTable = new JTable(tmodel);
         adjustSummaryTableSize(summaryTable, tmodel);
     }
@@ -436,7 +436,7 @@ public class TraditionalMutantsViewerPanel extends MutantsViewerPanel {
      */
     void printGeneratedMutantNum(String[] operators, int[] num) {
         int total = 0;
-        TMSummaryTableModel myModel = (TMSummaryTableModel) (summaryTable.getModel());
+        InheritanceINFO.TMSummaryTableModel myModel = (InheritanceINFO.TMSummaryTableModel) (summaryTable.getModel());
         for (int i = 0; i < MutationSystem.tm_operators.length; i++) {
             myModel.setValueAt(new Integer(num[i]), i, 1);
             total = total + num[i];

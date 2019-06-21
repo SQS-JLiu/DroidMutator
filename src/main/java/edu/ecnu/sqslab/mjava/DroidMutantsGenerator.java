@@ -5,7 +5,7 @@ import mjava.op.apply_op.ApplyAndroidOp;
 import mjava.op.apply_op.ApplyJavaOp;
 import mjava.op.apply_op.ApplyNewOp;
 import mjava.op.record.CodeChangeLog;
-import mjava.util.CreateDirForEachMethod;
+import mjava.op.record.CreateDirForEachMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

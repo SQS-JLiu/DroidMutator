@@ -16,8 +16,8 @@
 
 package mjava.gui.main;
 import edu.ecnu.sqslab.mjava.MutationSystem;
-import mjava.util.DirFileFilter;
-import mjava.util.MutantDirFilter;
+import mjava.filter.DirFileFilter;
+import mjava.filter.MutantDirFilter;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;

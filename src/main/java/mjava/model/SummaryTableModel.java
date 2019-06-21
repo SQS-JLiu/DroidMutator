@@ -14,7 +14,7 @@
  * limitations under the License.
  */ 
 
-package mjava.util;
+package mjava.model;
 
 import edu.ecnu.sqslab.mjava.MutationSystem;
 

@@ -15,17 +15,17 @@
  */ 
 
 
-package mjava.util;
 
+
+package mjava.model;
 
 /**
- * <p>Template containing summary of exception-related mutants generated</p>
+ * <p>Template containing summary of class mutants generated</p>
  * @version 1.0
   */
-
-public class EMSummaryTableModel extends SummaryTableModel
+public class CMSummaryTableModel extends SummaryTableModel
 {
-   private static final long serialVersionUID = 202L;
-   
-   int getOperatorType() {    return EMO;    }
+   private static final long serialVersionUID = 201L;
+
+   int getOperatorType() {    return CMO;    }
 }

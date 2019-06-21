@@ -4,7 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import mjava.op.record.BasicTypeUtil;
+import mjava.util.BasicTypeUtil;
 import mjava.op.record.MethodLevelMutator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

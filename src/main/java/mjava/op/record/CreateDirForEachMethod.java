@@ -1,11 +1,10 @@
-package mjava.util;
+package mjava.op.record;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import edu.ecnu.sqslab.mjava.MutationSystem;
-import mjava.op.record.Mutator;
 
 import java.io.File;
 import java.io.PrintWriter;

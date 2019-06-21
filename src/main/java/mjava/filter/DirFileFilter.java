@@ -15,7 +15,7 @@
  */ 
 
 
-package mjava.util;
+package mjava.filter;
 
 
 import java.io.File;

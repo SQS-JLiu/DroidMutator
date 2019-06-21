@@ -15,30 +15,17 @@
  */ 
 
 
-package mjava.util;
+package mjava.model;
 
-import java.io.FilenameFilter;
-import java.io.File;
 
 /**
- * <p>Description: </p>
+ * <p>Template containing summary of exception-related mutants generated</p>
  * @version 1.0
-  */ 
+  */
 
-public class MutantDirFilter implements FilenameFilter
+public class EMSummaryTableModel extends SummaryTableModel
 {
-
-  public MutantDirFilter()
-  {
-  }
-
-  public boolean accept(File dir, String name)
-  {
-    //name length filter
-	if( (name.indexOf("_")==3) || (name.indexOf("_")==4))
-    {
-      return true;
-    }
-    return true;
-  }
+   private static final long serialVersionUID = 202L;
+   
+   int getOperatorType() {    return EMO;    }
 }

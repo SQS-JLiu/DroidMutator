@@ -1,4 +1,4 @@
-package mjava.op.record;
+package mjava.util;
 
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.Expression;

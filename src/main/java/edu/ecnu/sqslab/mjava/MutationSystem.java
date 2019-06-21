@@ -1,5 +1,7 @@
 package edu.ecnu.sqslab.mjava;
 
+import mjava.filter.DirFileFilter;
+import mjava.filter.ExtensionFilter;
 import mjava.gui.main.GenMutantsMain;
 import mjava.model.ImplementINFO;
 import mjava.model.InheritanceINFO;
