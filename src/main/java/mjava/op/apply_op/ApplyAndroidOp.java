@@ -3,7 +3,6 @@ package mjava.op.apply_op;
 import com.github.javaparser.ast.CompilationUnit;
 import edu.ecnu.sqslab.mjava.MutantsGenerator;
 import mjava.op.android_op.*;
-import mjava.op.java_op.*;
 import mjava.op.record.MethodLevelMutator;
 
 import java.io.File;
@@ -94,6 +93,24 @@ public class ApplyAndroidOp {
             mutant_op = new ViewComponentNotVisible(comp_unit,original_file);
             comp_unit.accept(mutant_op,null);
             System.out.println("ViewComponentNotVisible are handled.");
+        }
+        if (MutantsGenerator.hasOperator(traditionalOp, "BuggyGUIListener")) {
+            System.out.println("  Applying BuggyGUIListener ... ... ");
+            mutant_op = new BuggyGUIListener(comp_unit,original_file);
+            comp_unit.accept(mutant_op,null);
+            System.out.println("BuggyGUIListener are handled.");
+        }
+        if (MutantsGenerator.hasOperator(traditionalOp, "LengthyGUICreation")) {
+            System.out.println("  Applying LengthyGUICreation ... ... ");
+            mutant_op = new LengthyGUICreation(comp_unit,original_file);
+            comp_unit.accept(mutant_op,null);
+            System.out.println("LengthyGUICreation are handled.");
+        }
+        if (MutantsGenerator.hasOperator(traditionalOp, "LengthyGUIListener")) {
+            System.out.println("  Applying LengthyGUIListener ... ... ");
+            mutant_op = new LengthyGUIListener(comp_unit,original_file);
+            comp_unit.accept(mutant_op,null);
+            System.out.println("LengthyGUIListener are handled.");
         }
     }
 }

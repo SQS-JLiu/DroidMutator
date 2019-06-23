@@ -1,25 +1,25 @@
 package mjava.op.ExpressionWriter;
 
-import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.Node;
 import mjava.op.record.TraditionalMutantCodeWriter;
 import mjava.op.record.WriteJavaFile;
 
 import java.io.File;
 import java.io.PrintWriter;
 
-public class GenericWriter extends TraditionalMutantCodeWriter {
-    Expression original;
+public class GenericNodeWriter extends TraditionalMutantCodeWriter {
+    Node original;
 
-    Expression mutant;
+    Node mutant;
 
-    public GenericWriter(String file_name, PrintWriter out) {
+    public GenericNodeWriter(String file_name, PrintWriter out) {
         super(file_name, out);
     }
 
     /**
      * Set original source code and mutated code
      */
-    public void setMutant(Expression exp1, Expression exp2) {
+    public void setMutant(Node exp1, Node exp2) {
         original = exp1;
         mutant = exp2;
     }

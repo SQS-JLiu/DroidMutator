@@ -4,13 +4,18 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.VariableDeclarationExpr;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
 import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JarTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
+import com.google.common.collect.Maps;
 import mjava.gui.main.MutantsGenPanel;
 import mjava.op.record.Mutator;
 import org.slf4j.Logger;
@@ -19,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by user on 2018/5/5.
@@ -207,6 +213,48 @@ public abstract class MutantsGenerator {
             logger.warn("Getting node type failed,you can ignore this. Node is: "+expr.toString());
         }
         return type;
+    }
+
+    /**
+     * Get local variables type
+     * Get the short name of the local variable type. For example, String str="123";  short name of str is String
+     *
+     * @param p
+     */
+    private static Map<String, String> getLocalVariableList(MethodDeclaration p) {
+        Map<String, String> localVariableType = Maps.newHashMap();
+        p.accept(new VoidVisitorAdapter<Object>() {
+            public void visit(VariableDeclarationExpr varDclr, Object obj) {
+                for (VariableDeclarator v : varDclr.getVariables()) {
+                    //System.out.println(v.getTypeAsString() + " : " + v.getNameAsString());
+                    localVariableType.put(v.getNameAsString(), v.getTypeAsString());
+                }
+            }
+        }, null);
+        return localVariableType;
+    }
+
+    /**
+     *  adding get short name of local variable type,
+     *  Improve the accuracy of parsing local variable types.
+     * @param expr
+     * @param p
+     * @return
+     */
+    public static String getType(Expression expr, MethodDeclaration p) {
+        Map<String, String> localVariableType = getLocalVariableList(p);
+        if (localVariableType.containsKey(expr.toString())) {
+            return localVariableType.get(expr.toString());
+        }
+        return getNodeType(expr);
+    }
+
+    public static String getType(Node node, MethodDeclaration p) {
+        Map<String, String> localVariableType = getLocalVariableList(p);
+        if (localVariableType.containsKey(node.toString())) {
+            return localVariableType.get(node.toString());
+        }
+        return getNodeType(node);
     }
 
     /**

@@ -1,4 +1,4 @@
-package mjava.op.new_op;
+package mjava.op.java_op;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
@@ -34,7 +34,7 @@ public class COR extends MethodLevelMutator {
         p.accept(new VoidVisitorAdapter<Object>() {
             @Override
             public void visit(BinaryExpr be,Object obj){
-                if(skipMutation(be)){
+                if(skipMutation(be)){// Used to mutate statements with control dependencies
                     return;
                 }
                 if(BasicTypeUtil.isLogicalOperator(be.getOperator())){

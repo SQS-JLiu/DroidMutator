@@ -1,4 +1,4 @@
-package mjava.op.new_op;
+package mjava.op.java_op;
 
 import com.github.javaparser.ast.expr.BinaryExpr;
 import mjava.op.record.TraditionalMutantCodeWriter;
@@ -9,13 +9,13 @@ import java.io.PrintWriter;
 
 /**
  * Created by user on 2018/5/7.
- *@author Jian Liu
+ * @author Jian Liu
  */
-public class COR_Writer extends TraditionalMutantCodeWriter {
+public class ROR_Writer extends TraditionalMutantCodeWriter {
     BinaryExpr original;
     BinaryExpr mutant;
 
-    public COR_Writer(String file_name, PrintWriter out) {
+    public ROR_Writer(String file_name, PrintWriter out) {
         super(file_name, out);
     }
 

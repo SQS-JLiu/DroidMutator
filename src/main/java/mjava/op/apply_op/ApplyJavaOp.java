@@ -3,8 +3,8 @@ package mjava.op.apply_op;
 import com.github.javaparser.ast.CompilationUnit;
 import edu.ecnu.sqslab.mjava.MutantsGenerator;
 import mjava.op.java_op.*;
-import mjava.op.new_op.COR;
-import mjava.op.new_op.ROR;
+import mjava.op.java_op.COR;
+import mjava.op.java_op.ROR;
 import mjava.op.record.MethodLevelMutator;
 
 import java.io.File;
@@ -71,6 +71,12 @@ public class ApplyJavaOp {
             mutant_op = new COR(comp_unit, original_file);
             comp_unit.accept(mutant_op, null);
             System.out.println("COR are handled.");
+        }
+        if (MutantsGenerator.hasOperator(traditionalOp, "AOI")) {
+            System.out.println("  Applying AOI ... ... ");
+            mutant_op = new AOI(comp_unit, original_file);
+            comp_unit.accept(mutant_op, null);
+            System.out.println("AOI are handled.");
         }
     }
 }

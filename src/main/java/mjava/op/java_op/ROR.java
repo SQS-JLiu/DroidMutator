@@ -1,4 +1,4 @@
-package mjava.op.new_op;
+package mjava.op.java_op;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
@@ -36,7 +36,7 @@ public class ROR extends MethodLevelMutator {
             @Override
             public void visit(BinaryExpr be, Object obj){
                 super.visit(be,obj);
-                if(skipMutation(be)){
+                if(skipMutation(be)){// Used to mutate statements with control dependencies
                     return;
                 }
                 if(BasicTypeUtil.isCompareOperator(be.getOperator())){

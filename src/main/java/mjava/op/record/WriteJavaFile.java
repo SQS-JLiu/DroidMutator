@@ -31,6 +31,7 @@ public class WriteJavaFile {
             codeLines = new ArrayList<>();
             BufferedReader br = new BufferedReader(new FileReader(original_file));
             String tempString;
+            codeLines.add(""); // The number of lines starts from 1.
             while ((tempString = br.readLine()) != null){
                 codeLines.add(tempString);
             }
@@ -44,12 +45,59 @@ public class WriteJavaFile {
         this.out = out;
     }
 
+    /**
+     * output mutant string
+     * @param codeLines
+     * @param original
+     * @param mutant
+     * @return
+     */
     public String printStringList(ArrayList<String> codeLines,Node original,Node mutant) {
+        if(!original.getBegin().isPresent() || !original.getEnd().isPresent()){
+            return  comp_unit.toString();
+        }
+        int startLine = original.getBegin().get().line;
+        int endLine = original.getEnd().get().line;
+        int startColumn = original.getBegin().get().column;
+        int endColumn = original.getEnd().get().column;
+        StringBuilder stub = new StringBuilder();
+        for (int line=1;line<startLine;line++){
+            stub.append(codeLines.get(line)+ System.getProperty("line.separator"));
+        }
+        try{
+            String tmpBefore = codeLines.get(startLine).substring(0,startColumn-1);
+            String tmpAfter ="";
+            if(codeLines.get(endLine).length() > endColumn){
+                tmpAfter = codeLines.get(endLine).substring(endColumn);
+            }
+            stub.append(tmpBefore + mutant.toString() + tmpAfter + System.getProperty("line.separator"));
+        }catch (StringIndexOutOfBoundsException e){
+            e.printStackTrace();
+            System.out.println("Line: "+startLine+",Column:"+startColumn +"==>" + codeLines.get(startLine));
+            System.err.println("Line: "+endLine+",Column:"+endColumn +"==>" + codeLines.get(endLine));
+        }
+        for(int line = endLine+1;line<codeLines.size();line++){
+            stub.append(codeLines.get(line)+System.getProperty("line.separator"));
+        }
+        return stub.toString();
+    }
+
+    /**
+     * @deprecated
+     * @param codeLines
+     * @param original
+     * @param mutant
+     * @return
+     */
+    public String printStringList_old(ArrayList<String> codeLines,Node original,Node mutant) {
         //原格式替换  Original format replacement
         LexicalPreservingPrinter.setup(original);
         //System.out.println(LexicalPreservingPrinter.print(original));
         String[] originals = LexicalPreservingPrinter.print(original).split(System.getProperty("line.separator"));
         String[] mutants = mutant.toString().split(System.getProperty("line.separator"));
+        if(!original.getBegin().isPresent() || !original.getEnd().isPresent()){
+            return comp_unit.toString();
+        }
         int i = original.getBegin().get().line,j=0;
         for( ;i<= original.getEnd().get().line;i++,j++){
             if( j < mutants.length){
@@ -78,7 +126,7 @@ public class WriteJavaFile {
         this.out = out;
     }
 
-    public boolean writeFile(MethodCallExpr original, Node mutant) {
+    public boolean writeFile(MethodCallExpr original, MethodCallExpr mutant) {
         if (comp_unit == null) {
             return false;
         }
@@ -145,14 +193,30 @@ public class WriteJavaFile {
         return false;
     }
 
-    // low efficiency
+    // generic expression writer
+    public boolean writeFile(Expression original, Expression mutant) {
+        if (comp_unit == null) {
+            return false;
+        }
+        List<Expression> meList = comp_unit.getNodesByType(Expression.class);
+        for (Expression expr : meList) {
+            if (expr.equals(original) && isEqualLine(expr, original)) {
+                out.println(printStringList(codeLines,original,mutant));
+                return true;
+            }
+        }
+        out.println(comp_unit.toString());
+        return false;
+    }
+
+    // generic node writer
     public boolean writeFile(Node original, Node mutant) {
         if (comp_unit == null) {
             return false;
         }
         List<Node> meList = comp_unit.getNodesByType(Node.class);
-        for (Node mode : meList) {
-            if (mode.equals(original) && isEqualLine(mode, original)) {
+        for (Node node : meList) {
+            if (node.equals(original) && isEqualLine(node, original)) {
                 out.println(printStringList(codeLines,original,mutant));
                 return true;
             }
@@ -213,7 +277,7 @@ public class WriteJavaFile {
         return false;
     }
 
-    public boolean writeFile(UnaryExpr original, Node mutant) {
+    public boolean writeFile(UnaryExpr original, Expression mutant) {
         if (comp_unit == null) {
             return false;
         }
@@ -228,7 +292,7 @@ public class WriteJavaFile {
         return false;
     }
 
-    public boolean writeFile(AssignExpr original, Node mutant) {
+    public boolean writeFile(AssignExpr original, AssignExpr mutant) {
         if (comp_unit == null) {
             return false;
         }
@@ -243,7 +307,7 @@ public class WriteJavaFile {
         return false;
     }
 
-    public boolean writeFile(VariableDeclarationExpr original, Node mutant) {
+    public boolean writeFile(VariableDeclarationExpr original, VariableDeclarationExpr mutant) {
         if (comp_unit == null) {
             return false;
         }

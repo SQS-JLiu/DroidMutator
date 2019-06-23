@@ -30,7 +30,7 @@ public class AODs extends MethodLevelMutator {
         p.accept(new VoidVisitorAdapter<Object>() {
             public void visit(UnaryExpr ue, Object arg) {
                 super.visit(ue, arg);
-                if (skipMutation(ue)) {
+                if (skipMutation(ue)) {// Used to mutate statements with control dependencies
                     return;
                 }
                 generateDeletionMutants(ue);

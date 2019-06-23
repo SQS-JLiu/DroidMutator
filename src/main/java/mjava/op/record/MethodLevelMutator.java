@@ -5,18 +5,13 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.body.VariableDeclarator;
-import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.ObjectCreationExpr;
-import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.ForeachStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import edu.ecnu.sqslab.mjava.MutantsGenerator;
 import edu.ecnu.sqslab.mjava.MutationSystem;
 import mjava.util.XMLHandler;
 
@@ -26,7 +21,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 
@@ -140,6 +134,11 @@ public abstract class MethodLevelMutator extends Mutator {
         super.visit(oce, obj);
     }
 
+    /**
+     * Skip this node and don't mutate it (Depends on the control_dependence item in muLocation.xml)
+     * @param node
+     * @return
+     */
     public boolean skipMutation(Node node) {
         Integer lineNo = node.getBegin().get().line;
         // has control dependence
@@ -147,41 +146,6 @@ public abstract class MethodLevelMutator extends Mutator {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Get local variables type
-     *
-     * @param p
-     */
-    private Map<String, String> getLocalVariableList(MethodDeclaration p) {
-        Map<String, String> localVariableType = Maps.newHashMap();
-        p.accept(new VoidVisitorAdapter<Object>() {
-            public void visit(VariableDeclarationExpr varDclr, Object obj) {
-                for (VariableDeclarator v : varDclr.getVariables()) {
-                    //System.out.println(v.getTypeAsString() + " : " + v.getNameAsString());
-                    localVariableType.put(v.getNameAsString(), v.getTypeAsString());
-                }
-            }
-        }, null);
-        return localVariableType;
-    }
-
-
-    public String getType(Expression expr, MethodDeclaration p) {
-        Map<String, String> localVariableType = getLocalVariableList(p);
-        if (localVariableType.containsKey(expr.toString())) {
-            return localVariableType.get(expr.toString());
-        }
-        return MutantsGenerator.getNodeType(expr);
-    }
-
-    public String getType(Node node, MethodDeclaration p) {
-        Map<String, String> localVariableType = getLocalVariableList(p);
-        if (localVariableType.containsKey(node.toString())) {
-            return localVariableType.get(node.toString());
-        }
-        return MutantsGenerator.getNodeType(node);
     }
 
     /**

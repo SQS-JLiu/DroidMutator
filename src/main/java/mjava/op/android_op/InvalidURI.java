@@ -1,13 +1,16 @@
-package mjava.op.java_op;
+package mjava.op.android_op;
 
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mjava.op.ExpressionWriter.VarDlrExper_Writer;
 import mjava.op.record.MethodLevelMutator;
+import mjava.util.StringGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,21 +19,21 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * NullBackEndServiceReturn (cited from MDroid+)
+ * InvalidURI (cited from MDroid+)
  * Description:
- * Assign null to a response variable from a back-end service
+ * If URIs are used internally, randomly mutate the URIs
  * Detection Technique:
  * AST
  * Code Example:
  * Before
- *  HttpResponse response = client.execute(httpGet);
+ *  URI uri = new URI(u.toString());
  * After
- *  HttpResponse response = null;
+ *  URI uri = new URI(“ecab6839856b426fbdae3e6e8c46c38c”);
  */
-public class NullBackEndServiceReturn extends MethodLevelMutator {
-    private static final Logger logger = LoggerFactory.getLogger(NullBackEndServiceReturn.class);
+public class InvalidURI extends MethodLevelMutator {
+    private static final Logger logger = LoggerFactory.getLogger(InvalidURI.class);
 
-    public NullBackEndServiceReturn(CompilationUnit comp_unit, File originalFile) {
+    public InvalidURI(CompilationUnit comp_unit, File originalFile) {
         super(comp_unit, originalFile);
     }
 
@@ -49,17 +52,24 @@ public class NullBackEndServiceReturn extends MethodLevelMutator {
     private void genMutants(VariableDeclarationExpr varDlrExpr) {
         VariableDeclarationExpr mutant = varDlrExpr.clone();
         for (VariableDeclarator var : mutant.getVariables()) {
-            if (var.getInitializer().isPresent() && var.getTypeAsString().equals("HttpResponse")) {
+            if (var.getInitializer().isPresent() && var.getTypeAsString().equals("URI")) {
                 Expression temp = var.getInitializer().get();
-                var.setInitializer("null");
-                outputToFile(varDlrExpr, mutant);
-                var.setInitializer(temp);
+                if(temp.isObjectCreationExpr()){
+                    Expression randStr = new StringLiteralExpr(StringGenerator.generateRandomString());
+                    Expression initValue = temp.clone();
+                    NodeList<Expression> nodeList = new NodeList<>();
+                    nodeList.add(randStr);
+                    initValue.asObjectCreationExpr().setArguments(nodeList);
+                    var.setInitializer(initValue);
+                    outputToFile(varDlrExpr, mutant);
+                    var.setInitializer(temp);
+                }
             }
         }
     }
 
     /**
-     * Output NullBackEndServiceReturn mutants to files
+     * Output InvalidURI mutants to files
      *
      * @param original
      * @param mutant
@@ -69,8 +79,8 @@ public class NullBackEndServiceReturn extends MethodLevelMutator {
             return;
         }
         num++;
-        String f_name = getSourceName("NullBackEndServiceReturn");
-        String mutant_dir = getMuantID("NullBackEndServiceReturn");
+        String f_name = getSourceName("InvalidURI");
+        String mutant_dir = getMuantID("InvalidURI");
         try {
             PrintWriter out = getPrintWriter(f_name);
             VarDlrExper_Writer writer = new VarDlrExper_Writer(mutant_dir, out);
@@ -80,7 +90,7 @@ public class NullBackEndServiceReturn extends MethodLevelMutator {
             out.flush();
             out.close();
         } catch (IOException e) {
-            System.err.println("NullBackEndServiceReturn: Fails to create " + f_name);
+            System.err.println("InvalidURI: Fails to create " + f_name);
             logger.error("Fails to create " + f_name);
         }
     }

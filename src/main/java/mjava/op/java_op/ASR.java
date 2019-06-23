@@ -4,6 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import edu.ecnu.sqslab.mjava.MutantsGenerator;
 import mjava.op.record.MethodLevelMutator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,7 @@ public class ASR extends MethodLevelMutator{
         methodDeclaration.accept(new VoidVisitorAdapter<Object>() {
             public void visit(AssignExpr assignExpr, Object obj) {
                 super.visit(assignExpr, obj);
-                if (skipMutation(assignExpr)) {
+                if (skipMutation(assignExpr)) {// Used to mutate statements with control dependencies
                     return;
                 }
                 AssignExpr.Operator aop = assignExpr.getOperator();
@@ -38,7 +39,7 @@ public class ASR extends MethodLevelMutator{
                         aop.equals(AssignExpr.Operator.MULTIPLY) || aop.equals(AssignExpr.Operator.DIVIDE) ||
                         aop.equals(AssignExpr.Operator.REMAINDER)){
                     if(aop.equals(AssignExpr.Operator.PLUS)){
-                        String targetType = getType(assignExpr.getTarget(),methodDeclaration);
+                        String targetType = MutantsGenerator.getType(assignExpr.getTarget(),methodDeclaration);
                         if("java.lang.String".equals(targetType) || "String".equals(targetType)){// String a="abc"; a+=1 /  a+="def";
                             return;
                         }

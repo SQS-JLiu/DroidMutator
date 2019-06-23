@@ -1,16 +1,16 @@
-package mjava.op.java_op;
+package mjava.op.android_op;
 
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.expr.StringLiteralExpr;
+import com.github.javaparser.ast.expr.IntegerLiteralExpr;
 import com.github.javaparser.ast.expr.VariableDeclarationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import mjava.op.ExpressionWriter.VarDlrExper_Writer;
 import mjava.op.record.MethodLevelMutator;
-import mjava.util.StringGenerator;
+import mjava.util.TimestampGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,21 +19,22 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * InvalidURI (cited from MDroid+)
+ * InvalidDate (cited from MDroid+)
  * Description:
- * If URIs are used internally, randomly mutate the URIs
+ * Set a random Date to a date object
  * Detection Technique:
  * AST
  * Code Example:
  * Before
- *  URI uri = new URI(u.toString());
+ *  Date stdDate = new Date(year, month, date);
  * After
- *  URI uri = new URI(“ecab6839856b426fbdae3e6e8c46c38c”);
+ *  Date stdDate = new Date(12345678910L);
  */
-public class InvalidURI extends MethodLevelMutator {
-    private static final Logger logger = LoggerFactory.getLogger(InvalidURI.class);
+public class InvalidDate extends MethodLevelMutator{
 
-    public InvalidURI(CompilationUnit comp_unit, File originalFile) {
+    private static final Logger logger = LoggerFactory.getLogger(InvalidDate.class);
+
+    public InvalidDate(CompilationUnit comp_unit, File originalFile) {
         super(comp_unit, originalFile);
     }
 
@@ -52,16 +53,17 @@ public class InvalidURI extends MethodLevelMutator {
     private void genMutants(VariableDeclarationExpr varDlrExpr) {
         VariableDeclarationExpr mutant = varDlrExpr.clone();
         for (VariableDeclarator var : mutant.getVariables()) {
-            if (var.getInitializer().isPresent() && var.getTypeAsString().equals("URI")) {
+            if (var.getInitializer().isPresent() && var.getTypeAsString().equals("Date")) {
                 Expression temp = var.getInitializer().get();
                 if(temp.isObjectCreationExpr()){
-                    Expression randStr = new StringLiteralExpr(StringGenerator.generateRandomString());
+                    Expression randInt = new IntegerLiteralExpr(TimestampGenerator.generateRandomTimestamp()+"L");
                     Expression initValue = temp.clone();
                     NodeList<Expression> nodeList = new NodeList<>();
-                    nodeList.add(randStr);
+                    nodeList.add(randInt);
                     initValue.asObjectCreationExpr().setArguments(nodeList);
                     var.setInitializer(initValue);
                     outputToFile(varDlrExpr, mutant);
+                    //Restoring state for the next mutation
                     var.setInitializer(temp);
                 }
             }
@@ -69,7 +71,7 @@ public class InvalidURI extends MethodLevelMutator {
     }
 
     /**
-     * Output InvalidURI mutants to files
+     * Output InvalidDate mutants to files
      *
      * @param original
      * @param mutant
@@ -79,8 +81,8 @@ public class InvalidURI extends MethodLevelMutator {
             return;
         }
         num++;
-        String f_name = getSourceName("InvalidURI");
-        String mutant_dir = getMuantID("InvalidURI");
+        String f_name = getSourceName("InvalidDate");
+        String mutant_dir = getMuantID("InvalidDate");
         try {
             PrintWriter out = getPrintWriter(f_name);
             VarDlrExper_Writer writer = new VarDlrExper_Writer(mutant_dir, out);
@@ -90,7 +92,7 @@ public class InvalidURI extends MethodLevelMutator {
             out.flush();
             out.close();
         } catch (IOException e) {
-            System.err.println("InvalidURI: Fails to create " + f_name);
+            System.err.println("InvalidDate: Fails to create " + f_name);
             logger.error("Fails to create " + f_name);
         }
     }

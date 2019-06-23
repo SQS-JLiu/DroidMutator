@@ -36,7 +36,7 @@ public class BasicTypeUtil {
 
     public static boolean isObjectType(Expression expr){
         String type = MutantsGenerator.getNodeType(expr);
-        if("java.lang.String".equals(type) ||"".equals(type) || !isArithmeticType(expr)){
+        if("java.lang.String".equals(type)||"".equals(type) || !isArithmeticType(expr)){
             return true;
         }
         return false;
