@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 
 /**
- * <p>Description: </p>
+ * <p>Description: Contrast log before and after mutation </p>
  * @author Jian Liu
  * @version 1.0
   */

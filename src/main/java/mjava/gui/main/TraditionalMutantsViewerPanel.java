@@ -268,7 +268,7 @@ public class TraditionalMutantsViewerPanel extends MutantsViewerPanel {
         // end_index = temp.lastIndexOf(MutationSystem.LOG_IDENTIFIER);
         // temp = temp.substring(end_index+1, temp.length());
         // return temp;
-        // 考虑字符串中包含 : 符号的情况
+        // ** Consider the case where a string contains a colon(:)
         if ("".equals(str)) {
             System.err.println("[Error]:getMethodSignature() Paramater is null.");
             return "null";
@@ -283,7 +283,7 @@ public class TraditionalMutantsViewerPanel extends MutantsViewerPanel {
         // end_index = temp.lastIndexOf(MutationSystem.LOG_IDENTIFIER);
         // temp = temp.substring(0, end_index);
         // return ((new Integer(temp)).intValue());
-        // 考虑字符串中包含 : 符号的情况
+        // ** Consider the case where a string contains a colon(:)
         if ("".equals(str)) {
             System.err.println("[Error]:getMutatedLineNum() Paramater is null.");
             return 0;

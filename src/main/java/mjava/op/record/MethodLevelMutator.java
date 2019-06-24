@@ -34,6 +34,7 @@ public abstract class MethodLevelMutator extends Mutator {
     protected String currentMethodSignature = null;
     //Marked statement line number set
     private Set<Integer> markStmtsSet = Sets.newHashSet();  //has control dependence
+    private Set<String> mutatedNodeSet = Sets.newHashSet(); // has been mutated node set
     protected File original_file;
 
     public MethodLevelMutator(CompilationUnit compileUnit, File originalFile) {
@@ -135,15 +136,24 @@ public abstract class MethodLevelMutator extends Mutator {
     }
 
     /**
-     * Skip this node and don't mutate it (Depends on the control_dependence item in muLocation.xml)
+     * Skip this node and don't mutate it
      * @param node
-     * @return
+     * @return if skip ,return true; else return false.
      */
     public boolean skipMutation(Node node) {
-        Integer lineNo = node.getBegin().get().line;
-        // has control dependence
-        if (ACTIVE_IDENTIFIER.equals(XMLHandler.control_dependence) && markStmtsSet.contains(lineNo)) {
-            return true;
+        if(node.getBegin().isPresent()){
+            Integer lineNo = node.getBegin().get().line;
+            Integer columnNo = node.getBegin().get().column;
+            // has been mutated node
+            if(mutatedNodeSet.contains(lineNo+"_"+columnNo)){
+                return true;
+            }else{
+                mutatedNodeSet.add(lineNo+"_"+columnNo);
+            }
+            // has control dependence (Depends on the control_dependence item in muLocation.xml)
+            if (ACTIVE_IDENTIFIER.equals(XMLHandler.control_dependence) && markStmtsSet.contains(lineNo)) {
+                return true;
+            }
         }
         return false;
     }

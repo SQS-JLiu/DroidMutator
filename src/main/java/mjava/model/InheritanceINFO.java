@@ -20,7 +20,7 @@ package mjava.model;
 import java.util.Vector;
 
 /**
- * <p>Description: </p>
+ * <p>Description: Inherited class information</p>
  * @version 1.0
   */ 
 

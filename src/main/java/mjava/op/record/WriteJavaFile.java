@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * Created by user on 2018/5/6.
- *
+ * Used to output mutant data and generate mutant files
  * @author Jian Liu
  */
 public class WriteJavaFile {

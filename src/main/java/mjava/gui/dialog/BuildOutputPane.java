@@ -56,7 +56,7 @@ public class BuildOutputPane extends JScrollPane {
     }
 
     /**
-     * 清除超过行数时前面多出行的字符
+     * Clear characters that exceed the line before the number of lines
      */
     private void replaceRange(String str, int start, int end) {
         if (end < start) {

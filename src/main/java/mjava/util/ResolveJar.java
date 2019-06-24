@@ -19,7 +19,7 @@ public class ResolveJar {
         System.out.println("Starting decompress apk file ......");
         long startTime=System.currentTimeMillis();
         try {
-            ZipInputStream Zin=new ZipInputStream(new FileInputStream(apkPath));//输入源zip路径
+            ZipInputStream Zin=new ZipInputStream(new FileInputStream(apkPath));//Input source zip path
             BufferedInputStream Bin=new BufferedInputStream(Zin);
             ZipEntry entry;
             try {

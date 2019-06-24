@@ -7,6 +7,9 @@ import mjava.op.record.MethodLevelMutator;
 
 import java.io.File;
 
+/**
+ * Apply Android-specific mutation operator
+ */
 public class ApplyAndroidOp {
     public static void applyAndroidOP(String[] traditionalOp, CompilationUnit comp_unit, File original_file){
         MethodLevelMutator mutant_op;

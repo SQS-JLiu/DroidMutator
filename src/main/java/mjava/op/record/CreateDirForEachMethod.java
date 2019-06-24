@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created by user on 2018/5/5.
- *
+ * Used to create mutant output directories
  * @author Jian Liu
  */
 public class CreateDirForEachMethod extends Mutator {

@@ -71,8 +71,9 @@ public class BuilderDialog extends JDialog {
                 case 1:
                     buildBtn.setEnabled(false);
                     cancelBtn.setEnabled(false);
+                    //Use thread to block the current event. Execute the instruction to add -u to avoid python output caching.
                     new Thread(){
-                        public void run(){ //使用线程，方式阻塞当前事件   执行指令添加-u,避免python输出缓存问题
+                        public void run(){
                             String cmd = MutationSystem.PYTHON_PATH +" -u "+ System.getProperty("user.dir");
                             cmd = cmd + File.separator +"builder" + File.separator + "compileAndroidPro.py ";
                             cmd = cmd + System.getProperty("user.dir") + File.separator +"mutator.xml";

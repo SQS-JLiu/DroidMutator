@@ -30,7 +30,7 @@ public class XMLHandler {
         SAXReader saxReader = new SAXReader();
         File xmlFile = new File(filepath);
         if(xmlFile.exists()){
-            //获取document对象,如果文档无节点，则会抛出Exception提前结束
+            //Get the document object, if the document has no nodes, it will throw an Exception and end early
             return saxReader.read(xmlFile);
         }
         System.err.println("Class XMLHandler: XML file "+filepath+" is not exists.");

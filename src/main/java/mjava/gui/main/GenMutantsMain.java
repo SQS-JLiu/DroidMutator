@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Vector;
 
 /**
+ * @author  Jian Liu
  * Created by user on 2018/5/5.
  */
 public class GenMutantsMain extends JFrame {

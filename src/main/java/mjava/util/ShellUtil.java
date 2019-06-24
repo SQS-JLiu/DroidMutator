@@ -1,18 +1,20 @@
 package mjava.util;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Used to execute instructions in SHELL and return output results
+ */
 public class ShellUtil {
     private static boolean isWindows = isWindowsSystem();
 
     /**
      * Execute the command directly and return the result
      * 
-     * @return map {"exitFlag": 0表示正常结束，其他表示异常 ,"output": 窗口输出结果}
+     * @return map {"exitFlag": 0 means normal end, others mean abnormal ,"output": output result}
      */
     public static Map<String, String> execute(String cmd, Map<String, String> envParams) {
         List<String> cmdList = new ArrayList<String>();
@@ -26,12 +28,12 @@ public class ShellUtil {
             cmdList.add("/c");
         }
         cmdList.add(cmd);
-        StringBuffer rsltStrBuffer = new StringBuffer(); // 保存返回的结果信息
-        int exitFlag = -1; // 等待SHELL线程完成的标识
+        StringBuffer rsltStrBuffer = new StringBuffer(); // Save the returned result information
+        int exitFlag = -1; // Wait for the SHELL thread to complete the identity
         Process proc = null;
         try {
             // System.out.println("Start Command :"+cmdList.toString());
-            // 启动命令
+            // Start command
             ProcessBuilder pb = new ProcessBuilder(cmdList);
             if (envParams != null) {
                 pb.environment().putAll(envParams);
@@ -39,10 +41,10 @@ public class ShellUtil {
 
             pb.redirectErrorStream(true);
             proc = pb.start();
-            // 读取命令返回信息和错误信息
+            // Read command return information and error information
             readNormalAndErrorInfo(rsltStrBuffer, proc);
 
-            // 等待命令执行完成，并返回命令执行状态
+            // Wait for the command to complete and return to the command execution state
             exitFlag = proc.waitFor();
         }
         catch (Exception e) {
@@ -59,7 +61,7 @@ public class ShellUtil {
         return result;
     }
 
-    private static void readNormalAndErrorInfo(StringBuffer rsltStrBuffer, Process proc) throws IOException {
+    private static void readNormalAndErrorInfo(StringBuffer rsltStrBuffer, Process proc) {
         try {
             int c;
             StringBuilder line = new StringBuilder();
@@ -67,7 +69,7 @@ public class ShellUtil {
                 rsltStrBuffer.append((char) c);
                 if (c == 10 || c == 13) {
                     String logStr = line.toString();
-                    // 去掉空行
+                    // Remove empty lines
                     if (logStr.length() > 0) {
                         System.out.println(logStr);
                         //BuildOutputPane.getInstance().writePane(logStr+"\n");

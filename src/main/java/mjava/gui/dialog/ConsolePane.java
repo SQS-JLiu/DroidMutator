@@ -72,7 +72,7 @@ public class ConsolePane extends JScrollPane {
     }
 
     /**
-     * 清除超过行数时前面多出行的字符
+     * Clear characters that exceed the line before the number of lines
      */
     private void replaceRange(String str, int start, int end) {
         if (end < start) {
@@ -96,26 +96,26 @@ public class ConsolePane extends JScrollPane {
 
     class MyPrintStream extends PrintStream {
 
-        private Color foreground; //输出时所用字体颜色
+        private Color foreground; //Font color used when outputting
 
 
         /**
-         * 构造自己的 PrintStream
-         * @param out 可传入 System.out 或 System.err, 实际不起作用
-         * @param foreground 显示字体颜色
+         * Construct your own PrintStream
+         * @param out Can be passed to System.out or System.err, which does not actually work
+         * @param foreground Display font color
          */
         MyPrintStream(OutputStream out,Color foreground) {
-            super(out,true); //使用自动刷新
+            super(out,true); //Use auto refresh
 
             this.foreground = foreground;
         }
 
         /**
-         * 在这里重截,所有的打印方法都要调用最底一层的方法
+         * Repeat here, all printing methods must call the bottom layer method
          */
         public void write(byte[] buf, int off, int len) {
             final String message = new String(buf, off, len);
-            /** SWING非界面线程访问组件的方式 */
+            /** SWING way of non-interface thread access components */
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
                     try {

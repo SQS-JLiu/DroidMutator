@@ -6,7 +6,7 @@ import edu.ecnu.sqslab.mjava.MutantsGenerator;
 
 /**
  * Created by user on 2018/5/8.
- *
+ * For basic data type checking
  * @author Jian Liu
  */
 public class BasicTypeUtil {

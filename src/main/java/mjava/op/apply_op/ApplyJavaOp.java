@@ -9,6 +9,9 @@ import mjava.op.record.MethodLevelMutator;
 
 import java.io.File;
 
+/**
+ * Apply Java-specific mutation operators
+ */
 public class ApplyJavaOp {
     public static void applyJavaOP(String[] traditionalOp, CompilationUnit comp_unit, File original_file){
         MethodLevelMutator mutant_op;

@@ -7,6 +7,9 @@ import mjava.op.record.MethodLevelMutator;
 
 import java.io.File;
 
+/**
+ * Applying a new extended mutation operator.
+ */
 public class ApplyNewOp {
 
     public static void newOperators(String[] traditionalOp,CompilationUnit comp_unit, File original_file){
@@ -28,12 +31,6 @@ public class ApplyNewOp {
             mutant_op = new CER(comp_unit, original_file);
             comp_unit.accept(mutant_op, null);
             System.out.println("CER are handled.");
-        }
-        if (MutantsGenerator.hasOperator(traditionalOp, "AVR")) {
-            System.out.println("  Applying AVR ... ... ");
-            mutant_op = new AVR(comp_unit, original_file);
-            comp_unit.accept(mutant_op, null);
-            System.out.println("AVR are handled.");
         }
         if (MutantsGenerator.hasOperator(traditionalOp, "FLR")) {
             System.out.println("  Applying FLR ... ... ");

@@ -2,6 +2,11 @@ package mjava.model;
 
 import java.util.List;
 
+
+/**
+ * Recording method information model
+ * @author Jian Liu
+ */
 public class MethodINFO {
     private String name;
     private String returnType;

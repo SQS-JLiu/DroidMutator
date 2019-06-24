@@ -5,6 +5,7 @@ import edu.ecnu.sqslab.mjava.MutationSystem;
 import java.io.PrintWriter;
 
 /**
+ * Used to output the mutation log
  * Created by user on 2018/5/5.
  */
 public class MutantCodeWriter {

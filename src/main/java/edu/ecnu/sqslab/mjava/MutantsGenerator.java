@@ -304,7 +304,7 @@ public abstract class MutantsGenerator {
     }
 
     /**
-     * 删除指定文件夹下的所有文件及子目录
+     * Delete all files and subdirectories under the specified folder
      *
      * @param path
      * @return
@@ -321,7 +321,7 @@ public abstract class MutantsGenerator {
                     tempList[i].delete();
                 }
                 else if (tempList[i].isDirectory()) {
-                    delAllFile(tempList[i].getPath());//删除文件夹里面的文件
+                    delAllFile(tempList[i].getPath());//Delete files in the folder
                 }
             }
         }
