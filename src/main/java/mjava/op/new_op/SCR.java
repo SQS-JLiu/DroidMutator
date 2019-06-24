@@ -4,6 +4,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import edu.ecnu.sqslab.mjava.MutantsGenerator;
 import mjava.op.record.MethodLevelMutator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,18 +34,15 @@ public class SCR extends MethodLevelMutator {
                 if(skipMutation(m)){
                     return;
                 }
-                if ("startsWith".equals(m.getNameAsString())) {
-//            System.out.println("1. call::" +m.getName() );
+                if ("startsWith".equals(m.getNameAsString()) && isStringType(m,p)) {
                     endWithMutantGen(m);
                     containsMutantGen(m);
                 }
-                else if ("endsWith".equals(m.getNameAsString())) {
-//             System.out.println("2. call::" + m.getName());
+                else if ("endsWith".equals(m.getNameAsString()) && isStringType(m,p)) {
                     startWithMutantGen(m);
                     containsMutantGen(m);
                 }
-                else if ("contains".equals(m.getNameAsString())) {
-//             System.out.println("3. call::" + m.getName());
+                else if ("contains".equals(m.getNameAsString()) && isStringType(m,p)) {
                     startWithMutantGen(m);
                     endWithMutantGen(m);
                 }
@@ -71,6 +69,19 @@ public class SCR extends MethodLevelMutator {
         mutant = meth.clone();
         mutant.setName("contains");
         outputToFile(meth, mutant);
+    }
+
+    private boolean isStringType(MethodCallExpr m,MethodDeclaration p){
+        if(m.getScope().isPresent()){
+            // We need to make sure that the variable of type String calls these methods
+            String type = MutantsGenerator.getType(m.getScope().get(),p);
+            if("java.lang.String".equals(type) || "String".equals(type)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        return false;
     }
 
     /**

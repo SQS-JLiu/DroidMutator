@@ -31,7 +31,7 @@ public class FindResults {
         //File resultFileDir = new File("E:\\mutatorHome\\experiments\\apk_output\\Shaarlier");
 
         //File resultFileDir = new File("E:\\mutatorHome\\experiments\\apk_output\\tuner");
-        File resultFileDir = new File("E:\\mutatorHome\\experiments\\apk_output\\World-Weather");
+        File resultFileDir = new File("E:\\mutatorHome\\experiments\\apk_output\\good-weather");
         if(!resultFileDir.exists()){
             System.out.println("dir not exists.");
         }
