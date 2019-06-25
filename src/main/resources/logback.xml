@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="true" scanPeriod="30 seconds">
 	<property name="LOGGER_HOME" value="./logs" />
-	<property name="ROOT_LEVEL" value="INFO" />
-	<property name="MJAVA_LEVEL" value="INFO" />
+	<property name="ROOT_LEVEL" value="ERROR" />
+	<property name="MJAVA_LEVEL" value="ERROR" />
 
 	<appender name="LOG"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
