@@ -50,26 +50,25 @@ public class AOI extends MethodLevelMutator {
         Expression leftExp = be.getLeft();
         Expression rightExp = be.getRight();
         BinaryExpr mutant = be.clone();
+        // Now the tool can only type check the nodes used, it can't check if it is a constant variable,
+        // so inserting ++ and -- is very likely to be a syntax error. (Practice has proved)
         if(leftExp.isNameExpr() &&BasicTypeUtil.isArithmeticType(leftExp)){
-            //We think the postfix is not working well. Code Example 1: return num1+num2++; ==>  return num1+num2++;
-            // Code Example 2: if(a>b) return b; ==> if(a>b++) return b;
-            // These ++ is meaningless. So Ignore the generation of this mutant.
             // case 1: a ==> a++
-//            UnaryExpr unaryExpr = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.POSTFIX_INCREMENT);
-//            mutant.setLeft(unaryExpr);
-//            outputToFile(be,mutant);
+            //UnaryExpr unaryExpr = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.POSTFIX_INCREMENT);
+            //mutant.setLeft(unaryExpr);
+            //outputToFile(be,mutant);
             //case 2: a==> ++a
-            UnaryExpr unaryExpr2 = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.PREFIX_INCREMENT);
-            mutant.setLeft(unaryExpr2);
-            outputToFile(be,mutant);
+            //UnaryExpr unaryExpr2 = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.PREFIX_INCREMENT);
+            //mutant.setLeft(unaryExpr2);
+            //outputToFile(be,mutant);
             // case 3: a ==> a--
-//            UnaryExpr unaryExp3 = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.POSTFIX_DECREMENT);
-//            mutant.setLeft(unaryExp3);
-//            outputToFile(be,mutant);
+            //UnaryExpr unaryExp3 = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.POSTFIX_DECREMENT);
+            //mutant.setLeft(unaryExp3);
+            //outputToFile(be,mutant);
             //case 4: a==> --a
-            UnaryExpr unaryExpr4 = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.PREFIX_DECREMENT);
-            mutant.setLeft(unaryExpr4);
-            outputToFile(be,mutant);
+            //UnaryExpr unaryExpr4 = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.PREFIX_DECREMENT);
+            //mutant.setLeft(unaryExpr4);
+            //outputToFile(be,mutant);
             //case 5: a==> -a
             UnaryExpr unaryExpr5 = new UnaryExpr(leftExp.clone(),UnaryExpr.Operator.MINUS);
             mutant.setLeft(unaryExpr5);
@@ -78,21 +77,21 @@ public class AOI extends MethodLevelMutator {
         mutant = be.clone();
         if(rightExp.isNameExpr() && BasicTypeUtil.isArithmeticType(rightExp)){
             // case 1: b ==> b++
-//            UnaryExpr unaryExpr = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.POSTFIX_INCREMENT);
-//            mutant.setRight(unaryExpr);
-//            outputToFile(be,mutant);
+            //UnaryExpr unaryExpr = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.POSTFIX_INCREMENT);
+            //mutant.setRight(unaryExpr);
+            //outputToFile(be,mutant);
             //case 2: b==> ++b
-            UnaryExpr unaryExpr2 = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.PREFIX_INCREMENT);
-            mutant.setRight(unaryExpr2);
-            outputToFile(be,mutant);
+            //UnaryExpr unaryExpr2 = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.PREFIX_INCREMENT);
+            //mutant.setRight(unaryExpr2);
+            //outputToFile(be,mutant);
             // case 1: b ==> b--
-//            UnaryExpr unaryExpr3 = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.POSTFIX_DECREMENT);
-//            mutant.setRight(unaryExpr3);
-//            outputToFile(be,mutant);
+            //UnaryExpr unaryExpr3 = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.POSTFIX_DECREMENT);
+            //mutant.setRight(unaryExpr3);
+            //outputToFile(be,mutant);
             //case 2: b==> --b
-            UnaryExpr unaryExpr4 = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.PREFIX_DECREMENT);
-            mutant.setRight(unaryExpr4);
-            outputToFile(be,mutant);
+            //UnaryExpr unaryExpr4 = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.PREFIX_DECREMENT);
+            //mutant.setRight(unaryExpr4);
+            //outputToFile(be,mutant);
             //case 5: b==> -b
             UnaryExpr unaryExpr5 = new UnaryExpr(rightExp.clone(),UnaryExpr.Operator.MINUS);
             mutant.setRight(unaryExpr5);

@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c7267e1e-f701-4124-bea0-23dbf755ae90" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AOI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AOI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mjava/op/record/WriteJavaFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mjava/op/record/WriteJavaFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/samples/FindResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/samples/FindResults.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,20 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="operators.config" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/operators.config">
+      <file leaf-file-name="FindResults.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/samples/FindResults.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AOI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/java_op/AOI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+            <state relative-caret-position="252">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
@@ -108,7 +101,6 @@
         <option value="$PROJECT_DIR$/src/main/java/mjava/util/ShellUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/util/ResolveJar.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/util/BasicTypeUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mjava/op/record/WriteJavaFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/record/Mutator.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/record/MutantCodeWriter.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/record/CreateDirForEachMethod.java" />
@@ -125,11 +117,12 @@
         <option value="$PROJECT_DIR$/src/main/java/mjava/gui/dialog/BuildOutputPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/gui/dialog/BuilderDialog.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/samples/FindResults.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AOI.java" />
         <option value="$PROJECT_DIR$/src/main/java/mjava/op/new_op/SCR.java" />
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/mjava/op/java_op/AOI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mjava/op/record/WriteJavaFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/samples/FindResults.java" />
       </list>
     </option>
   </component>
@@ -163,6 +156,8 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -170,12 +165,28 @@
               <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
               <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DroidMutator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DroidMutator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -398,29 +409,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4977307" weight="0.36633664" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5060514" side_tool="true" weight="0.330033" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32980332" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49319214" weight="0.339934" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32838285" />
-      <window_info anchor="bottom" x="22" y="145" width="1322" height="463" id="Terminal" order="9" sideWeight="0.50680786" visible="true" weight="0.13531353" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49319214" weight="0.39438945" />
+      <window_info anchor="bottom" x="22" y="145" width="1322" height="463" id="Terminal" order="9" sideWeight="0.50680786" weight="0.48019803" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" x="491" y="113" width="383" height="502" id="Project" order="0" visible="true" weight="0.25037822" />
+      <window_info active="true" content_ui="combo" x="491" y="113" width="383" height="502" id="Project" order="0" visible="true" weight="0.26172465" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.41584158" />
       <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" weight="0.41584158" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4977307" weight="0.34323433" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -443,33 +455,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/record/MethodLevelMutator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="33" column="51" lean-forward="true" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-          <folding>
-            <element signature="e#2726#3385#0" expanded="true" />
-            <element signature="e#3384#3385#0" expanded="true" />
-            <element signature="e#3980#4557#0" expanded="true" />
-            <element signature="e#4556#4557#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/android_op/InvalidFilePath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/android_op/FindViewByIdReturnNull.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/android_op/InvalidDate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -578,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/gui/main/GenMutantsMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mjava/gui/dialog/BuilderDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -610,13 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -749,31 +720,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="243" column="25" selection-start-line="243" selection-start-column="25" selection-end-line="243" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/SCR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/samples/FindResults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/operators.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -791,10 +741,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/gui/main/GenMutantsMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operators.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="78" column="3" selection-start-line="78" selection-start-column="3" selection-end-line="78" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/java_op/AORu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutationSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/ecnu/sqslab/mjava/MutantsGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="225" column="17" lean-forward="true" selection-start-line="225" selection-start-column="17" selection-end-line="225" selection-end-column="17" />
+          <folding>
+            <element signature="e#8735#9136#0" expanded="true" />
+            <element signature="e#9135#9136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/java_op/AOI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        <state relative-caret-position="248">
+          <caret line="53" column="92" lean-forward="true" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/record/WriteJavaFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="156" column="72" lean-forward="true" selection-start-line="156" selection-start-column="72" selection-end-line="156" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mjava/op/new_op/CER_Writer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/samples/FindResults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>

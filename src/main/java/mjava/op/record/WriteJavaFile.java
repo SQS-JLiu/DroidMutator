@@ -152,8 +152,9 @@ public class WriteJavaFile {
         List<ConditionalExpr> meList = comp_unit.getNodesByType(ConditionalExpr.class);
         for (ConditionalExpr conditionalExpr : meList) {
             if (conditionalExpr.equals(original) && isEqualLine(conditionalExpr, original)) {
-                conditionalExpr.replace(mutant);
-                out.println(comp_unit.toString());
+                //conditionalExpr.replace(mutant);
+                //out.println(comp_unit.toString());
+                out.println(printStringList(codeLines,original,mutant));
                 return true;
             }
         }
