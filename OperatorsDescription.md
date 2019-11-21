@@ -1,3 +1,5 @@
+Description of 32 mutation operators implemented by DroidMutator
+-------------------------------------------------------------
 Android-specific operators
 ===============================================
     InvalidIDFindView
@@ -190,6 +192,72 @@ After <br>
 
 Java-specific operators
 ===============================================
+     InvalidDate
+Description:<br>
+Set a random Date to a date object <br>
+Code Example:  <br>
+Before <br>
+    ```
+    Date stdDate = Date(year, month, date);  
+    ``` <br>
+After <br>
+    ```
+    Date stdDate = Date(12345678910L); 
+    ```<br>
+
+     InvalidFilePath
+Description:<br>
+Randomly mutate paths to files <br>
+Code Example:  <br>
+Before <br>
+    ```
+    File textFile = new File(“/sdcard/session.log”);  
+    ``` <br>
+After <br>
+    ```
+    File textFile = new File(“ecab6839856b426fbdae3e6e8c46c38c”); 
+    ```<br>
+
+     InvalidURI
+Description:<br>
+If URIs are used internally, randomly mutate the URIs <br>
+Code Example:  <br>
+Before <br>
+    ```
+    URI uri = new URI(u.toString());  
+    ``` <br>
+After <br>
+    ```
+    URI uri = new URI(“ecab6839856b426fbdae3e6e8c46c38c”);  
+    ```<br>
+
+     Shift Operator Replacement (SOR)
+Description:<br>
+Replacement displacement operator <br>
+Code Example:  <br>
+Before <br>
+    ```
+     a>>1 
+    ``` <br>
+After <br>
+    ```
+     a<<1 and a>>>1  
+    ```<br>
+
+     Relational Operator Replacement (ROR)
+Description:<br>
+Replacement relational operator <br>
+Code Example:  <br>
+Before <br>
+    ```
+     a>b
+    ``` <br>
+After <br>
+    ```
+     a>=b, a<b， a<=b， a==b， a!=b
+    ```<br>
+
+
 
 
 
