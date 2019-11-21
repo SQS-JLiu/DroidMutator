@@ -64,3 +64,185 @@ After <br>
     ```
     Intent intent = new Intent("com.myclass.otheraction");   
     ```<br>
+
+    NewParamIntentPutExtras
+Description:<br>
+Replace the parameters of the intent PutExtras method <br>
+Code Example:  <br>
+Before <br>
+    ```
+    intent.putExtras(mybundle/myintent);  
+    ``` <br>
+After <br>
+    ```
+    intent.putExtras(new Bundle()/new Intent()); 
+    ```<br>
+
+    InvalidKeyIntentPutExtra
+Description:<br>
+Randomly generate a different key in an Intent.putExtra(key, value) call <br>
+Code Example:  <br>
+Before <br>
+    ```
+    intent.putExtra(key, value);   
+    ``` <br>
+After <br>
+    ```
+    intent.putExtra(“ecab6839856b426fbdae3e6e8c46c38c”, value); 
+    ```<br>
+
+    ViewComponentNotVisible
+Description:<br>
+Set visible attribute (from a View) to false <br>
+Code Example:  <br>
+Before <br>
+    ```
+    TextView emailTextView = (TextView) findViewById(R.id.EmailTextView);  
+    ``` <br>
+After <br>
+    ```
+    TextView emailTextView = (TextView) findViewById(R.id.EmailTextView);
+    emailTextView.setVisibility(android.view.View.INVISIBLE);  
+    ```<br>
+
+    FindViewByIdReturnNull
+Description:<br>
+Replace view ID return value is an empty object <br>
+Code Example:  <br>
+Before <br>
+    ```
+    button = findViewById(R.id.btn);  
+    ``` <br>
+After <br>
+    ```
+    button = null; 
+    ```<br>
+
+    BuggyGUIListener
+Description:<br>
+Assign null to a listener <br>
+Code Example:  <br>
+Before <br>
+    ```
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            clicksCount += 1;
+        }
+    }  
+    ``` <br>
+After <br>
+    ```
+    private View.OnClickListener listener = null; 
+    ```<br>
+
+    LengthyGUICreation
+Description:<br>
+Insert a long delay (\ie Thread.sleep(..)) in the creation GUI thread <br>
+Code Example:  <br>
+Before <br>
+    ```
+     public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        Toast.makeText(getApplicationContext(),"2. onCreate()", Toast.LENGTH_SHORT).show();
+    }   
+    ``` <br>
+After <br>
+    ```
+     public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        Toast.makeText(getApplicationContext(),"2. onCreate()", Toast.LENGTH_SHORT).show();
+    }   
+    ``` <br>
+
+    LengthyGUIListener
+Description:<br>
+Insert a long delay (\ie Thread.sleep(..)) in a GUI Listener <br>
+Code Example:  <br>
+Before <br>
+    ```
+     private View.OnClickListener listener = new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+      clicksCount += 1;
+    }  
+    ``` <br>
+After <br>
+    ```
+       private View.OnClickListener listener = new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+      clicksCount += 1;
+      	try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+    }  
+    ```<br>
+
+Java-specific operators
+===============================================
+
+
+
+Java-specific operators (4 new mutation operators)
+===============================================
+     String Argument Replacement(SAR)
+Description:<br>
+Replace the value of the string type with a null value <br>
+Code Example:  <br>
+Before <br>
+    ```
+    getValueByName(“Tom”); 
+    ``` <br>
+After <br>
+    ```
+    getValueByName(“”);
+    ```<br>
+
+     String Call Replacement(SCR)
+Description:<br>
+Replace the call method of the string object <br>
+Code Example:  <br>
+Before <br>
+    ```
+    urlStr.startWith(“http”);
+    ``` <br>
+After <br>
+    ```
+    urlStr.endwith(“http”);  and  urlStr.contains((“http”);
+    ```<br>
+
+      Conditional Expression Replacement(CER)
+Description:<br>
+Replace the parameters of the conditional expression <br>
+Code Example:  <br>
+Before <br>
+    ```
+    int data = a>b?c:d;
+    ``` <br>
+After <br>
+    ```
+    int data = a>b?c:c  and  int data = a>b?d:d;
+    ```<br>
+
+      For Loop Replacement(FLR)
+Description:<br>
+Replace the initial condition and decision parameters of the for loop <br>
+Code Example:  <br>
+Before <br>
+    ```
+     for(int i=0;i<size;i++)
+    ``` <br>
+After <br>
+    ```
+     for(int i=0;i<size-1;i++)  and  for(int i=1;i<size;i++)
+    ```<br>
