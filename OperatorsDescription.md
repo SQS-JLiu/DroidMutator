@@ -192,6 +192,33 @@ After <br>
 
 Java-specific operators
 ===============================================
+     NullBackEndServiceReturn
+Description:<br>
+Assign null to a response variable from a back-end service <br>
+Code Example:  <br>
+Before <br>
+    ```
+    HttpResponse response = client.execute(httpGet);  
+    ``` <br>
+After <br>
+    ```
+    HttpResponse response = null;
+    ```<br>
+
+     NullInputStream
+Description:<br>
+Assign an input stream to null before it is closed <br>
+Code Example:  <br>
+Before <br>
+    ```
+    fileStream.close(); 
+    ``` <br>
+After <br>
+    ```
+    fileStream = null;
+    fileStream.close(); 
+    ```<br>
+
      InvalidDate
 Description:<br>
 Set a random Date to a date object <br>
@@ -257,9 +284,122 @@ After <br>
      a>=b, a<b， a<=b， a==b， a!=b
     ```<br>
 
+     Arithmetic Operator Deletion(Short-cut) (AODs)
+Description:<br>
+Remove auto increment and decrement operators <br>
+Code Example:  <br>
+Before <br>
+    ```
+     data=++num;
+    ``` <br>
+After <br>
+    ```
+     data=num;
+    ```<br>
 
+      Arithmetic Operator Deletion(Unary) (AODu)
+Description:<br>
+Delete unary arithmetic operator <br>
+Code Example:  <br>
+Before <br>
+    ```
+     a=-b;
+    ``` <br>
+After <br>
+    ```
+     a=b;
+    ```<br>
 
+      Arithmetic Operator Replacement(Binary) (AORb)
+Description:<br>
+Replace binary operator <br>
+Code Example:  <br>
+Before <br>
+    ```
+     int data = a+b;
+    ``` <br>
+After <br>
+    ```
+     int data = a-b;
+    ```<br>
 
+      Arithmetic Operator Replacement(Short-cut) (AORs)
+Description:<br>
+Replace auto increment and decrement arithmetic operators <br>
+Code Example:  <br>
+Before <br>
+    ```
+      a--;
+    ``` <br>
+After <br>
+    ```
+     a++; or ++a; or --a;
+    ```<br>
+
+      Arithmetic Operator Replacement(Unary) (AORu)
+Description:<br>
+Replace the unary arithmetic operator <br>
+Code Example:  <br>
+Before <br>
+    ```
+     -a;
+    ``` <br>
+After <br>
+    ```
+     +a;
+    ```<br>
+
+      Arithmetic Operator Insertion (AOI)
+Description:<br>
+Insert an arithmetic operator into an expression <br>
+Code Example:  <br>
+Before <br>
+    ```
+     a=b-c;
+    ``` <br>
+After <br>
+    ```
+     a=++b-c;
+    ```<br>
+
+      Assignment Operator Replacement (AOR)
+Description:<br>
+Replaces the assignment operator of an assignment expression <br>
+Code Example:  <br>
+Before <br>
+    ```
+    a+=b;
+    ``` <br>
+After <br>
+    ```
+    a-=b; or a/=b; or a*=b;
+    ```<br>
+
+      Logical Operator Replacement (LOR)
+Description:<br>
+Replace the logical operator in the expression <br>
+Code Example:  <br>
+Before <br>
+    ```
+    a & b;
+    ``` <br>
+After <br>
+    ```
+    a | b;
+    ```<br>
+
+      Conditional Operator Replacement (COR)
+Description:<br>
+Replace the conditional operator in the expression <br>
+Code Example:  <br>
+Before <br>
+    ```
+    a && b;
+    ``` <br>
+After <br>
+    ```
+    a || b;
+    ```<br>
 
 Java-specific operators (4 new mutation operators)
 ===============================================
