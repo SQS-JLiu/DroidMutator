@@ -24,7 +24,7 @@ Video Url: https://youtu.be/0WFAcuTXFZE
     muLocation.xml, mutator.xml, operators.config, \libs\*.jar, \builder, \launcher
    ![dir_tree](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/dir_tree.jpg)
 
-### Two methods of mutant generation:
+### Two ways to generate mutants:
 1. Graphical interface performs mutation operations. The user can select the file to be mutated and the mutation operator first, then click Generate to mutate, and the mutation result can be viewed through the Viewer.
    (The configuration file under the execution path is loaded by default.).
 
