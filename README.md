@@ -3,7 +3,7 @@ A type checking based mutation tool:
 
 Video Url: https://youtu.be/0WFAcuTXFZE
 
-Mutation operator description: OperatorsDescription.md
+Mutation operator description: [Operator description]( https://raw.github.com/SQS-JLiu/DroidMutator/master/OperatorsDescription.md )
 
 # The Overview of Project
 ### The prepare work:
