@@ -35,15 +35,15 @@ Video Url: https://youtu.be/0WFAcuTXFZE
     
         java -jar DroidMutator.jar [location_config=path/muLocation.xml] [project_config=path/mutator.xml] [operators_config=path/operators.config]
 ### Build each mutant as an installable file (APK file)
-   The mutator.xml under the variation execution path is loaded by default, 
-   and a custom configuration file such as path/mutator.xml can also be passed in.
-   (You need to ensure that the environment can build applications using gradle.)
-        
+   The Builder needs to read the mutator.xml to get the mutant file and output the APK file to the specified location. By default, Builder will read the mutator.xml file in the directory structure described above. Of course, you can also specify a path parameter. The instructions are as follows: <br>
+(Tips: You need to ensure that the environment can build applications using gradle.) <br>
+
+        cd builder
         python compileAndroidPro.py [otherpath/mutator.xml]
 ### Install and launch each APK file
-   The mutator.xml under the variation execution path is loaded by default, 
-   and a custom configuration file such as path/mutator.xml can also be passed in.
-   (You need to ensure that there is a simulated emulator or physical device connected to the computer before executing the command.)
+   The mutator.xml under the mutation execution path is loaded by default, 
+   and a custom configuration file such as path/mutator.xml can also be passed in. <br>
+   (Tips: You need to ensure that there is a simulated emulator or physical device connected to the computer before executing the command.)
         
         python RunMutants.py  [otherpath/mutator.xml]
   If the app-debug_app_crash_flag file identifier exists in the same directory of the mutant APK, 
