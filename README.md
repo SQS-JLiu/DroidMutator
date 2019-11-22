@@ -14,14 +14,14 @@ Video Url: https://youtu.be/0WFAcuTXFZE
 ### Two ways to get tools：
 
 #### 1. click to download [DroidMutator]( https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip ) image
-   The image archive contains executable programs and demo app. The main directory structure is as follows: <br>
-    1. `DroidMutator.jar:` Mutant generation component    <br>                                                
-    2. `\builder:` Used to package mutants into APK files   <br>
-    3. `\launcher:` Used to install the APK file and launch the app  <br>
-    4. `\libs:` The path to the libs folder, which contains dependencies for parsing Android features  <br>
-    5. `muLocation.xml:` Mutation scope profile   <br>
-    6. `mutator.xml:`  Configuring mutation generation, packaging, and output paths  <br>
-    7. `operators.config:` Used to configure mutation operators  <br>
+The image archive contains executable programs and demo app. The main directory structure is as follows:
+1. `DroidMutator.jar:` Mutant generation component    <br>
+2. `\builder:` Used to package mutants into APK files   <br>
+3. `\launcher:` Used to install the APK file and launch the app  <br>
+4. `\libs:` The path to the libs folder, which contains dependencies for parsing Android features  <br>
+5. `muLocation.xml:` Mutation scope profile   <br>
+6. `mutator.xml:`  Configuring mutation generation, packaging, and output paths  <br>
+7. `operators.config:` Used to configure mutation operators  <br>
    ![dir_tree](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/dir_tree.jpg)
     
 #### 2. Build by yourself
