@@ -25,15 +25,15 @@ Video Url: https://youtu.be/0WFAcuTXFZE
    ![dir_tree](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/dir_tree.jpg)
 
 ### Two methods of mutant generation:
-1. In the GUI select the files to be mutated and the mutation operators
+1. Graphical interface performs mutation operations. The user can select the file to be mutated and the mutation operator first, then click Generate to mutate, and the mutation result can be viewed through the Viewer.
    (The configuration file under the execution path is loaded by default.).
 
         java -jar DroidMutator.jar   
    ![gui](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/mutate_gui.png)
-2. Pass in the custom muLocation.xml, mutator.xml or operators.config file.
-   This will use all configuration operators to mutate all source files directly(Not display GUI).
+2. Command line interface performs mutation operations. It reads the muLocation.xml, mutator.xml or operators.config configuration file in the custom directory for mutation analysis. It uses all the mutation operators configured in operators.config to mutate all the code files in the source code directory.
     
-        java -jar DroidMutator.jar [location_config=path/muLocation.xml] [project_config=path/mutator.xml] [operators_config=path/operators.config]
+        java -jar DroidMutator.jar [location_config=path2file/muLocation.xml] 
+        [project_config=path2file/mutator.xml] [operators_config=path2file/operators.config]
 ### Build each mutant as an installable file (APK file)
    The Builder needs to read the mutator.xml to get the mutant file and output the APK file to the specified location. By default, Builder will read the mutator.xml file in the directory structure described above. Of course, you can also specify a path parameter. The instructions are as follows: <br>
 (Tips: You need to ensure that the environment can build applications using gradle.) <br>
