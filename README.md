@@ -39,12 +39,12 @@ Video Url: https://youtu.be/0WFAcuTXFZE
 (Tips: You need to ensure that the environment can build applications using gradle.) <br>
 
         cd builder
-        python compileAndroidPro.py [otherpath/mutator.xml]
+        python compileAndroidPro.py [path2file/mutator.xml]
 ### Install and launch each APK file
-   The mutator.xml under the mutation execution path is loaded by default, 
-   and a custom configuration file such as path/mutator.xml can also be passed in. <br>
+   The launcher needs to read the mutator.xml to get the mutant APK file location. The reading method is the same as the above Builder. The instructions are as follows: <br>
    (Tips: You need to ensure that there is a simulated emulator or physical device connected to the computer before executing the command.)
         
-        python RunMutants.py  [otherpath/mutator.xml]
+        cd launcher
+        python RunMutants.py  [path2file/mutator.xml]
   If the app-debug_app_crash_flag file identifier exists in the same directory of the mutant APK, 
   it means that the mutant is trivial mutant (i.e., those leading to crashes on app launch).
