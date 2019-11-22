@@ -14,16 +14,18 @@ Video Url: https://youtu.be/0WFAcuTXFZE
 ### Two ways to get tools：
 
 #### 1. click to download [DroidMutator]( https://raw.github.com/SQS-JLiu/DroidMutator/master/muTool.zip ) image
+    The following files and DroidMutator-1.0-xxx.jar are in a working directory：
+    muLocation.xml, mutator.xml, operators.config, \libs\*.jar, \builder, \launcher
+   ![dir_tree](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/dir_tree.jpg)
     
 #### 2. Build by yourself
     step 1. git clone https://github.com/SQS-JLiu/DroidMutator.git
     step 2. cd  DroidMutator
     step 3. mvn clean
     step 4. mvn package
-##### you will find DroidMutator file in project directory (./target/DroidMutator-1.0-SNAPSHOT-jar-with-dependencies.jar)
-    The following files and DroidMutator-1.0-xxx.jar are in a working directory：
-    muLocation.xml, mutator.xml, operators.config, \libs\*.jar, \builder, \launcher
-   ![dir_tree](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/dir_tree.jpg)
+##### The generated runnable jar can be found in: ./target/DroidMutator-1.0-SNAPSHOT-jar-with-dependencies.jar
+    The runable jar package combines the files in the project to get the directory structure described above.
+
 
 ### Two ways to generate mutants:
 1. Graphical interface performs mutation operations. The user can select the file to be mutated and the mutation operator first, then click Generate to mutate, and the mutation result can be viewed through the Viewer.
