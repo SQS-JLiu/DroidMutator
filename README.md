@@ -3,6 +3,8 @@ A type checking based mutation tool:
 
 Video Url: https://youtu.be/0WFAcuTXFZE
 
+Mutation operator description: OperatorsDescription.md
+
 # The Overview of Project
 ### The prepare work:
 
