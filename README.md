@@ -24,7 +24,7 @@ Video Url: https://youtu.be/0WFAcuTXFZE
     step 3. mvn clean
     step 4. mvn package
 ##### The generated runnable jar can be found in: ./target/DroidMutator-1.0-SNAPSHOT-jar-with-dependencies.jar
-    The runable jar package combines the files in the project to get the directory structure described above.
+    Combine the runable jar package with the files in the project to get the above directory structure.
 
 
 ### Two ways to generate mutants:
