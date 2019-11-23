@@ -24,7 +24,7 @@ The image archive contains executable programs and demo app. The main directory 
 5. `muLocation.xml:` Mutation scope profile   <br>
 6. `mutator.xml:`  Configuring mutation generation, packaging, and output paths  <br>
 7. `operators.config:` Used to configure mutation operators  <br>
-   ![dir_tree](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/dir_tree.jpg)
+   ![dir_tree](https://github.com/SQS-JLiu/DroidMutator/blob/master/readme/dir_tree.png)
     
 #### 2. Build by yourself
     step 1. git clone https://github.com/SQS-JLiu/DroidMutator.git
