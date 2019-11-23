@@ -55,6 +55,7 @@ The image archive contains executable programs and demo app. The main directory 
 If the mutant is a stillborn mutant (i.e., code syntax error), the corresponding mutant will not be generated APK.
 ***
 ### Install and launch each APK file
+##### (This module depends on [androguard](https://github.com/androguard/androguard.git) and needs to be installed. CMD: pip install -U androguard)
    The launcher needs to read the mutator.xml to get the mutant APK file location. The reading method is the same as the above Builder. The instructions are as follows: <br>
    (Tips: You need to ensure that there is a simulated emulator or physical device connected to the computer before executing the command.)
         
