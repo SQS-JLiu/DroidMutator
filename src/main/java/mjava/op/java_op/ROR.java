@@ -40,7 +40,7 @@ public class ROR extends MethodLevelMutator {
                     return;
                 }
                 if(BasicTypeUtil.isCompareOperator(be.getOperator())){
-                    if(BasicTypeUtil.isArithmeticType(be.getLeft()) && BasicTypeUtil.isArithmeticType(be.getRight())){
+                    if(BasicTypeUtil.isArithmeticType(be.getLeft()) || BasicTypeUtil.isArithmeticType(be.getRight())){
                         primitiveMutantGen(be);
                     }else {
                         objectMutantGen(be);
