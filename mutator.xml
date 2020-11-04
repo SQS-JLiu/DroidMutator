@@ -19,6 +19,8 @@
 		<Directory name="build_path">E:\mutatorHome\pro_source</Directory>
 		<!-- Mutant APKs output directory -->
 		<Directory name="apk_output">E:\mutatorHome\apk_output</Directory>
+		<!-- Project gradlew directory -->
+		<Directory name="project_gradlew">E:\mutatorHome\pro_source\MyApplication</Directory>
 	</Builder>
 	<!-- python instruction path -->
 	<Python>D:\Python27\python</Python>
